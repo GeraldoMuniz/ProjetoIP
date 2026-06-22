@@ -2,6 +2,7 @@ import pygame
 import tela
 import boneco
 import chave
+import mapa
 
 def main ():
     pygame.init ()
@@ -29,7 +30,7 @@ def main ():
             chave.chaves_posicionar()
             print (f"{chaves_coletadas}")
         #pinta a tela
-        tela_jogo.fill ((0, 0, 0))
+        mapa.desenhar(tela_jogo)
         #desenha os objetos
         pygame.draw.rect(tela_jogo, (255, 215, 0), (chave.x, chave.y, chave.tamanho, chave.tamanho))
         pygame.draw.rect (tela_jogo, (50, 205, 50), (boneco.x, boneco.y, 40, 40))
