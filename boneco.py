@@ -22,10 +22,10 @@ def movimento ():
 #checa se não vai ultrapassar o limite do mapa e deixa ele totalmente visível
     if (x < 0):
         x = 0
-    elif (x > 800 - tamanho):
-        x = 800 - tamanho
+    elif (x > 1920 - tamanho):
+        x = 1920 - tamanho
 
     elif (y < 0):
         y = 0
-    elif (y > 600 - tamanho):
-        y = 600 - tamanho
+    elif (y > 1080 - tamanho):
+        y = 1080 - tamanho
