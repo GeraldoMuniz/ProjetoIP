@@ -1,18 +1,36 @@
 import pygame
-import random
-#tamanho da chave
 tamanho = 20
-#spawn inicial
-x = random.randint (50, 750)
-y = random.randint (50, 550)
-#cor da chave
-chave = (255, 215, 0)
-#posicionamento da chave
-def chaves_posicionar ():
-    global x, y
+cor = (255, 215, 0)
+lista_chaves = [
 
-    x = random.randint (50, 750)
-    y = random.randint (50, 550)
-#desenho da chave
-def chaves_desenhar (tela):
-    pygame.draw.rect(tela, chave, (x, y, tamanho, tamanho))
+    {
+        "nome": "Chave Azul",
+        "x": 300,
+        "y": 200,
+        "pegou": False
+    },
+
+    {
+        "nome": "Chave Vermelha",
+        "x": 1500,
+        "y": 850,
+        "pegou": False
+    },
+
+    {
+        "nome": "Chave Mestre",
+        "x": 1200,
+        "y": 700,
+        "pegou": False
+    }
+
+]
+
+def desenhar_chaves(tela):
+    for chave in lista_chaves:
+        if chave["pegou"] == False:
+            pygame.draw.rect(
+                tela,
+                cor,
+                (chave["x"], chave["y"], tamanho, tamanho)
+            )
