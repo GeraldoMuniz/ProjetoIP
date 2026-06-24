@@ -1,8 +1,8 @@
 import pygame
 import tela
-import boneco
-import chave
-import mapa
+from personagens import boneco
+from objetos import chave
+import mapa 
 
 def main ():
     pygame.init ()
@@ -21,18 +21,23 @@ def main ():
         #vê o movimento do boneco
         boneco.movimento ()
 
-        #colisao do boneco e chave
+        #colisao do boneco
         rect_boneco = pygame.Rect(boneco.x, boneco.y, boneco.tamanho, boneco.tamanho)
-        rect_chave = pygame.Rect(chave.x, chave.y, chave.tamanho, chave.tamanho)
-        #se colidir, soma a chave
-        if (rect_boneco.colliderect (rect_chave)):
-            chaves_coletadas += 1
-            chave.chaves_posicionar()
-            print (f"{chaves_coletadas}")
+        #logica chave
+        for c in chave.lista_chaves:
+            if not c["pegou"]:
+                        #rect colisao chave atual
+                rect_chave = pygame.Rect(c["x"], c["y"], chave.tamanho, chave.tamanho)
+                        
+                        #se houver colisao
+                if rect_boneco.colliderect(rect_chave):
+                    c["pegou"] = True #some
+                    chaves_coletadas += 1
+                    print(f"Chaves coletadas: {chaves_coletadas}")
         #pinta a tela
         mapa.desenhar(tela_jogo)
-        #desenha os objetos
-        pygame.draw.rect(tela_jogo, (255, 215, 0), (chave.x, chave.y, chave.tamanho, chave.tamanho))
+        #desenha os boneco
+        chave.desenhar_chaves (tela_jogo)
         pygame.draw.rect (tela_jogo, (50, 205, 50), (boneco.x, boneco.y, 40, 40))
         #atualiza a tela
         pygame.display.flip ()
