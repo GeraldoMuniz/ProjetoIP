@@ -109,6 +109,13 @@ def main ():
                 60,
                 60
             )
+
+        porta_saida_sala_musica = pygame.Rect(
+                827,
+                100,
+                60,
+                60
+            )
         
         for ocorrencia in pygame.event.get ():
             #se apertar no botão de sair, sai.
@@ -187,7 +194,14 @@ def main ():
                 boneco_jogo.rect.y = 406
 
         elif mapa_atual == "sala_de_musica":
-            pass
+            
+            if boneco_jogo.rect.colliderect(porta_saida_sala_musica):
+
+                mapa_atual = "principal"
+        
+                # personagem volta para o corredor
+                boneco_jogo.rect.x = 1230
+                boneco_jogo.rect.y = 640
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
