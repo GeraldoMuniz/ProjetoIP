@@ -56,16 +56,16 @@ def main ():
             )
 
         porta_hardware = pygame.Rect(
-                900,
-                400,
-                60,
+                322,
+                852,
+                80,
                 60
             )
 
         porta_saida_hardware = pygame.Rect(
-                800,
-                850,
-                60,
+                819,
+                63,
+                80,
                 60
             )
         
@@ -96,8 +96,8 @@ def main ():
                 mapa_atual = "hardware"
             
                 #aparece logo abaixo da porta norte
-                boneco_jogo.rect.x = 800
-                boneco_jogo.rect.y = 0
+                boneco_jogo.rect.x = 820
+                boneco_jogo.rect.y = 140
 
         elif mapa_atual == "hardware":
 
@@ -105,7 +105,7 @@ def main ():
         
                 mapa_atual = "biblioteca"
         
-                boneco_jogo.rect.x = 1250
+                boneco_jogo.rect.x = 340
                 boneco_jogo.rect.y = 780
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
