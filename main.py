@@ -6,6 +6,7 @@ from objetos import chave
 import mapa
 import biblioteca
 import hardware
+import area_privada
 
 def desenhar_coracoes (tela_jogo, vida_atual):
     largura_coracao = 20
@@ -33,7 +34,8 @@ def main ():
     mapas = {
     "principal": mapa.desenhar,
     "biblioteca": biblioteca.desenhar,
-    "hardware": hardware.desenhar
+    "hardware": hardware.desenhar,
+    "area_privada": area_privada.desenhar
     }
 
     fonte = pygame.font.SysFont(None, 28) #REMOVER
@@ -68,6 +70,20 @@ def main ():
                 80,
                 60
             )
+
+        porta_area_privada = pygame.Rect(
+                1000,
+                200,
+                80,
+                80
+            )
+            
+        porta_saida_area_privada = pygame.Rect(
+                1350,
+                820,
+                80,
+                80
+            )
         
         for ocorrencia in pygame.event.get ():
             #se apertar no botão de sair, sai.
@@ -81,6 +97,12 @@ def main ():
 
                 # personagem aparece dentro da biblioteca
                 boneco_jogo.rect.x = 1120
+                boneco_jogo.rect.y = 760
+
+            elif boneco_jogo.rect.colliderect(porta_area_privada):
+                mapa_atual = "area_privada"
+            
+                boneco_jogo.rect.x = 1400
                 boneco_jogo.rect.y = 760
 
         elif mapa_atual == "biblioteca":
@@ -107,6 +129,15 @@ def main ():
         
                 boneco_jogo.rect.x = 340
                 boneco_jogo.rect.y = 780
+
+        elif mapa_atual == "area_privada":
+
+            if boneco_jogo.rect.colliderect(porta_saida_area_privada):
+        
+                mapa_atual = "principal"
+        
+                boneco_jogo.rect.x = 1000
+                boneco_jogo.rect.y = 300
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
