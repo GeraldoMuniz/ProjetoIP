@@ -184,15 +184,15 @@ def main ():
             )
 
         porta_laboratorio = pygame.Rect(
-                510,
-                794,
+                826,
+                212,
                 60,
                 60
             )
 
         porta_saida_laboratorio = pygame.Rect(
-                834,
-                772,
+                794,
+                845,
                 60,
                 60
             )
@@ -258,8 +258,8 @@ def main ():
             elif boneco_jogo.rect.colliderect(porta_laboratorio):
                 mapa_atual = "laboratorio"
             
-                boneco_jogo.rect.x = 200
-                boneco_jogo.rect.y = 200
+                boneco_jogo.rect.x = 823
+                boneco_jogo.rect.y = 720
 
         elif mapa_atual == "biblioteca":
 
@@ -357,8 +357,8 @@ def main ():
         
                 mapa_atual = "principal"
         
-                boneco_jogo.rect.x = 800
-                boneco_jogo.rect.y = 400
+                boneco_jogo.rect.x = 812
+                boneco_jogo.rect.y = 300
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
