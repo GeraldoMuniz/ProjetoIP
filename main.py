@@ -7,6 +7,7 @@ import mapa
 import biblioteca
 import hardware
 import area_privada
+import robocin
 
 def desenhar_coracoes (tela_jogo, vida_atual):
     largura_coracao = 20
@@ -36,6 +37,7 @@ def main ():
     "biblioteca": biblioteca.desenhar,
     "hardware": hardware.desenhar,
     "area_privada": area_privada.desenhar
+    "robocin": robocin.desenhar
     }
 
     fonte = pygame.font.SysFont(None, 28) #REMOVER
@@ -72,17 +74,31 @@ def main ():
             )
 
         porta_area_privada = pygame.Rect(
-                1000,
-                200,
-                80,
-                80
+                1318,
+                215,
+                60,
+                60
             )
             
         porta_saida_area_privada = pygame.Rect(
-                1350,
-                820,
-                80,
-                80
+                364,
+                848,
+                60,
+                60
+            )
+
+        porta_robocin = pygame.Rect(
+                1378,
+                406,
+                60,
+                60
+            )
+            
+            porta_saida_robocin = pygame.Rect(
+                218,
+                428,
+                60,
+                60
             )
         
         for ocorrencia in pygame.event.get ():
@@ -102,8 +118,14 @@ def main ():
             elif boneco_jogo.rect.colliderect(porta_area_privada):
                 mapa_atual = "area_privada"
             
-                boneco_jogo.rect.x = 1400
-                boneco_jogo.rect.y = 760
+                boneco_jogo.rect.x = 339
+                boneco_jogo.rect.y = 798
+
+            elif boneco_jogo.rect.colliderect(porta_robocin):
+                mapa_atual = "robocin"
+            
+                boneco_jogo.rect.x = 280
+                boneco_jogo.rect.y = 428
 
         elif mapa_atual == "biblioteca":
 
@@ -136,8 +158,17 @@ def main ():
         
                 mapa_atual = "principal"
         
-                boneco_jogo.rect.x = 1000
+                boneco_jogo.rect.x = 1317
                 boneco_jogo.rect.y = 300
+
+        elif mapa_atual == "robocin":
+
+            if boneco_jogo.rect.colliderect(porta_saida_robocin):
+        
+                mapa_atual = "principal"
+        
+                boneco_jogo.rect.x = 1310
+                boneco_jogo.rect.y = 406
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
