@@ -11,6 +11,7 @@ import robocin
 import sala_de_musica
 import mesanino
 import anfiteatro
+import banheiro
 
 def desenhar_coracoes (tela_jogo, vida_atual):
     largura_coracao = 20
@@ -43,7 +44,8 @@ def main ():
     "robocin": robocin.desenhar,
     "sala_musica": sala_de_musica.desenhar,
     "mesanino": mesanino.desenhar,
-    "anfiteatro": anfiteatro.desenhar
+    "anfiteatro": anfiteatro.desenhar,
+    "banheiro": banheiro.desenhar
     }
 
     fonte = pygame.font.SysFont(None, 28) #REMOVER
@@ -136,15 +138,29 @@ def main ():
             )
 
         porta_anfiteatro = pygame.Rect(
-                564,
-                636,
+                553,
+                637,
                 60,
                 60
             )
 
         porta_saida_anfiteatro = pygame.Rect(
-                427,
-                388,
+                1485,
+                409,
+                60,
+                60
+            )
+
+        porta_banheiro = pygame.Rect(
+                1113,
+                213,
+                60,
+                60
+            )
+
+        porta_saida_banheiro = pygame.Rect(
+                1485,
+                409,
                 60,
                 60
             )
@@ -191,6 +207,12 @@ def main ():
 
             elif boneco_jogo.rect.colliderect(porta_anfiteatro):
                 mapa_atual = "anfiteatro"
+            
+                boneco_jogo.rect.x = 1326
+                boneco_jogo.rect.y = 418
+
+            elif boneco_jogo.rect.colliderect(porta_banheiro):
+                mapa_atual = "banheiro"
             
                 boneco_jogo.rect.x = 200
                 boneco_jogo.rect.y = 200
@@ -264,8 +286,17 @@ def main ():
         
                 mapa_atual = "principal"
         
-                boneco_jogo.rect.x = 950
-                boneco_jogo.rect.y = 600
+                boneco_jogo.rect.x = 632
+                boneco_jogo.rect.y = 637
+
+        elif mapa_atual == "banheiro":
+
+            if boneco_jogo.rect.colliderect(porta_saida_banheiro):
+        
+                mapa_atual = "principal"
+        
+                boneco_jogo.rect.x = 600
+                boneco_jogo.rect.y = 400
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
