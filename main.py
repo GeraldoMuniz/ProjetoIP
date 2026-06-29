@@ -12,7 +12,7 @@ import sala_de_musica
 import mesanino
 import anfiteatro
 import banheiro
-import hekpdesk
+import helpdesk
 
 def desenhar_coracoes (tela_jogo, vida_atual):
     largura_coracao = 20
