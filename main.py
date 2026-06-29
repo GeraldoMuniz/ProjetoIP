@@ -3,7 +3,7 @@ import tela
 from personagens.boneco import Boneco
 from personagens.vilao import Inimigo
 from objetos import chave
-import mapa 
+import mapa
 import biblioteca
 
 def desenhar_coracoes (tela_jogo, vida_atual):
@@ -29,21 +29,28 @@ def main ():
     
     mapa_atual = "principal"
 
+    mapas = {
+    "principal": mapa.desenhar,
+    "biblioteca": biblioteca.desenhar
+    }
+
+    fonte = pygame.font.SysFont(None, 28) #REMOVER
+
     flag_rodar = True
 
     while (flag_rodar):
         porta_biblioteca = pygame.Rect(
-            330,
-            255,
-            70,
-            70
+            317,
+            248,
+            60,
+            60
         )
 
         porta_saida_biblioteca = pygame.Rect(
-                1120,
-                860,
-                100,
-                50
+                1251,
+                817,
+                60,
+                60
             )
         
         for ocorrencia in pygame.event.get ():
@@ -72,15 +79,10 @@ def main ():
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
 
-
         #logica chave
         chave.desenhar_chaves (tela_jogo)
         #pinta a tela
-        if mapa_atual == "principal":
-            mapa.desenhar(tela_jogo)
-        
-        elif mapa_atual == "biblioteca":
-            biblioteca.desenhar(tela_jogo)
+        mapas[mapa_atual](tela_jogo)
         
         #desenha os objetos
         chave.desenhar_chaves (tela_jogo)
@@ -90,22 +92,15 @@ def main ():
 
         desenhar_coracoes (tela_jogo, boneco_jogo.vida)     #vida do personagem
 
-        #ajustar as coordenadas da porta biblioteca
-        if mapa_atual == 'principal':
-            pygame.draw.rect(
-                tela_jogo,
-                (255, 0, 255),
-                porta_biblioteca,
-                3
-            )
+        mx, my = pygame.mouse.get_pos()
+        print(mx, my)
+        texto = fonte.render(
+            f"Mouse: ({mx}, {my})",
+            True,
+            (255,255,255)
+        )
 
-        if mapa_atual == "biblioteca":
-            pygame.draw.rect(
-                tela_jogo,
-                (0, 255, 0),
-                porta_saida_biblioteca,
-                3
-            )
+        tela_jogo.blit(texto, (10,10))
 
         #atualiza a tela
         pygame.display.flip ()
