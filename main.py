@@ -9,6 +9,7 @@ import hardware
 import area_privada
 import robocin
 import sala_de_musica
+import mesanino
 
 def desenhar_coracoes (tela_jogo, vida_atual):
     largura_coracao = 20
@@ -39,7 +40,8 @@ def main ():
     "hardware": hardware.desenhar,
     "area_privada": area_privada.desenhar,
     "robocin": robocin.desenhar,
-    "sala_musica": sala_de_musica.desenhar
+    "sala_musica": sala_de_musica.desenhar,
+    "mesanino": mesanino.desenhar
     }
 
     fonte = pygame.font.SysFont(None, 28) #REMOVER
@@ -116,6 +118,20 @@ def main ():
                 60,
                 60
             )
+
+        porta_mesanino = pygame.Rect(
+                1082,
+                630,
+                60,
+                60
+            )
+            
+        porta_saida_mesanino = pygame.Rect(
+                476,
+                368,
+                60,
+                60
+            )
         
         for ocorrencia in pygame.event.get ():
             #se apertar no botão de sair, sai.
@@ -149,6 +165,13 @@ def main ():
                 #posicao que o personagem aparece
                 boneco_jogo.rect.x = 825
                 boneco_jogo.rect.y = 240
+
+            elif boneco_jogo.rect.colliderect(porta_mesanino):
+                mapa_atual = "mesanino"
+            
+                #personagem aparece dentro do mesanino
+                boneco_jogo.rect.x = 842
+                boneco_jogo.rect.y = 251
 
         elif mapa_atual == "biblioteca":
 
@@ -202,6 +225,16 @@ def main ():
                 #personagem volta para o corredor
                 boneco_jogo.rect.x = 1326
                 boneco_jogo.rect.y = 572
+
+        elif mapa_atual == "mesanino":
+
+            if boneco_jogo.rect.colliderect(porta_saida_mesanino):
+        
+                mapa_atual = "principal"
+        
+                #personagem volta para o corredor
+                boneco_jogo.rect.x = 1084
+                boneco_jogo.rect.y = 577
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
