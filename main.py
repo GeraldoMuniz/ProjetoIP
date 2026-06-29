@@ -27,16 +27,29 @@ def main ():
     inimigo_jogo = Inimigo (x = 200, y = 200, velocidade = 0.8) #cria o vilao
 
     chaves_coletadas = 0
+    
+    mapa_atual = "principal"
 
     flag_rodar = True
 
     while (flag_rodar):
+        porta_biblioteca = pygame.Rect(
+            700,
+            0,
+            150,
+            40
+        )
         for ocorrencia in pygame.event.get ():
             #se apertar no botão de sair, sai.
             if (ocorrencia.type == pygame.QUIT):
                 flag_rodar = False
         #movimento do boneco
         boneco_jogo.movimento ()
+        if mapa_atual == "principal":
+            if boneco_jogo.rect.colliderect(porta_biblioteca):
+                mapa_atual = "biblioteca"
+                boneco_jogo.rect.x = 800
+                boneco_jogo.rect.y = 850
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
@@ -45,7 +58,12 @@ def main ():
         #logica chave
         chave.desenhar_chaves (tela_jogo)
         #pinta a tela
-        mapa.desenhar(tela_jogo)
+        if mapa_atual == "principal":
+            mapa.desenhar(tela_jogo)
+        
+        elif mapa_atual == "biblioteca":
+            biblioteca.desenhar(tela_jogo)
+        
         #desenha os objetos
         chave.desenhar_chaves (tela_jogo)
         #desenhar inimigos
