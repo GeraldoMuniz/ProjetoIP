@@ -5,6 +5,7 @@ from personagens.vilao import Inimigo
 from objetos import chave
 import mapa
 import biblioteca
+import hardware
 
 def desenhar_coracoes (tela_jogo, vida_atual):
     largura_coracao = 20
@@ -31,7 +32,8 @@ def main ():
 
     mapas = {
     "principal": mapa.desenhar,
-    "biblioteca": biblioteca.desenhar
+    "biblioteca": biblioteca.desenhar,
+    "hardware": hardware.desenhar
     }
 
     fonte = pygame.font.SysFont(None, 28) #REMOVER
@@ -49,6 +51,20 @@ def main ():
         porta_saida_biblioteca = pygame.Rect(
                 1251,
                 817,
+                60,
+                60
+            )
+
+        porta_hardware = pygame.Rect(
+                900,
+                400,
+                60,
+                60
+            )
+
+        porta_saida_hardware = pygame.Rect(
+                800,
+                850,
                 60,
                 60
             )
@@ -72,9 +88,25 @@ def main ():
             if boneco_jogo.rect.colliderect(porta_saida_biblioteca):
                 mapa_atual = "principal"
 
-                # personagem volta para o corredor
+                #personagem volta para o corredor
                 boneco_jogo.rect.x = 340
                 boneco_jogo.rect.y = 340
+
+            if boneco_jogo.rect.colliderect(porta_hardware):
+                mapa_atual = "hardware"
+            
+                #aparece logo abaixo da porta norte
+                boneco_jogo.rect.x = 800
+                boneco_jogo.rect.y = 0
+
+        elif mapa_atual == "hardware":
+
+            if boneco_jogo.rect.colliderect(porta_saida_hardware):
+        
+                mapa_atual = "biblioteca"
+        
+                boneco_jogo.rect.x = 1250
+                boneco_jogo.rect.y = 780
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
