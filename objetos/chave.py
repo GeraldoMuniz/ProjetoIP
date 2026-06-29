@@ -1,36 +1,26 @@
 import pygame
-tamanho = 20
-cor = (255, 215, 0)
+from objetos.coletavel import Coletavel
+
+class Chave(Coletavel):
+    def __init__(self, nome, cor, x, y, porta):
+        super().__init__(nome, x, y)
+        self.cor = cor
+        self.porta = porta  #qual porta essa chave abre
+
+    def desenhar(self, tela):
+        if not self.pegou:
+            pygame.draw.rect(tela, self.cor, self.rect)
+
+#chaves do jogo
+#azul -> biblioteca -> abre o laboratorio
+#vermelha -> helpdesk -> abre o robocin
+#mestra -> mesanino -> abre a area privada (saida)
 lista_chaves = [
-
-    {
-        "nome": "Chave Azul",
-        "x": 300,
-        "y": 200,
-        "pegou": False
-    },
-
-    {
-        "nome": "Chave Vermelha",
-        "x": 1500,
-        "y": 850,
-        "pegou": False
-    },
-
-    {
-        "nome": "Chave Mestre",
-        "x": 1200,
-        "y": 700,
-        "pegou": False
-    }
-
+    Chave("Chave Azul",     (0, 120, 255),  300,  200, "Laboratório"),
+    Chave("Chave Vermelha", (220, 20, 60),  1500, 850, "RobôCIn"),
+    Chave("Chave Mestra",   (255, 215, 0),  1200, 700, "Área Privada"),
 ]
 
 def desenhar_chaves(tela):
     for chave in lista_chaves:
-        if chave["pegou"] == False:
-            pygame.draw.rect(
-                tela,
-                cor,
-                (chave["x"], chave["y"], tamanho, tamanho)
-            )
+        chave.desenhar(tela)

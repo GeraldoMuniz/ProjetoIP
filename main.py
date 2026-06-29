@@ -5,6 +5,18 @@ from personagens.vilao import Inimigo
 from objetos import chave
 import mapa 
 
+def desenhar_coracoes (tela_jogo, vida_atual):
+    largura_coracao = 20
+    espacamento = 10
+    pos_x_inicial = 20  
+    pos_y = 20          
+    for i in range(vida_atual):
+        x = pos_x_inicial + (i * (largura_coracao + espacamento))
+        pygame.draw.circle(tela_jogo, (255, 0, 0), (x + 5, pos_y + 5), 6)
+        pygame.draw.circle(tela_jogo, (255, 0, 0), (x + 15, pos_y + 5), 6)
+        pygame.draw.polygon(tela_jogo, (255, 0, 0), [(x, pos_y + 7), (x + 20, pos_y + 7), (x + 10, pos_y + 18)])
+
+
 def main ():
     pygame.init ()
     #cria a tela
@@ -30,16 +42,7 @@ def main ():
 
 
         #logica chave
-        for c in chave.lista_chaves:
-            if not c["pegou"]:
-                        #rect colisao chave atual
-                rect_chave = pygame.Rect(c["x"], c["y"], chave.tamanho, chave.tamanho)
-                        
-                        #se houver colisao
-                if boneco_jogo.rect.colliderect(rect_chave):
-                    c["pegou"] = True #some
-                    chaves_coletadas += 1
-                    print(f"Chaves coletadas: {chaves_coletadas}")
+        chave.desenhar_chaves (tela_jogo)
         #pinta a tela
         mapa.desenhar(tela_jogo)
         #desenha os objetos
@@ -47,6 +50,9 @@ def main ():
         #desenhar inimigos
         pygame.draw.rect (tela_jogo, (50, 205, 50), boneco_jogo.rect)
         pygame.draw.rect (tela_jogo, (255, 0, 0), inimigo_jogo.rect)
+
+        desenhar_coracoes (tela_jogo, boneco_jogo.vida)     #vida do personagem
+
         #atualiza a tela
         pygame.display.flip ()
     #encerra o programa
