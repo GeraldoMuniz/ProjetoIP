@@ -4,6 +4,7 @@ from personagens.boneco import Boneco
 from personagens.vilao import Inimigo
 from objetos import chave
 import mapa 
+import biblioteca
 
 def desenhar_coracoes (tela_jogo, vida_atual):
     largura_coracao = 20
