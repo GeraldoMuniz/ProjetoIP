@@ -8,6 +8,7 @@ import biblioteca
 import hardware
 import area_privada
 import robocin
+import sala_de_musica
 
 def desenhar_coracoes (tela_jogo, vida_atual):
     largura_coracao = 20
@@ -37,7 +38,8 @@ def main ():
     "biblioteca": biblioteca.desenhar,
     "hardware": hardware.desenhar,
     "area_privada": area_privada.desenhar
-    "robocin": robocin.desenhar
+    "robocin": robocin.desenhar,
+    "sala_musica": sala_musica.desenhar
     }
 
     fonte = pygame.font.SysFont(None, 28) #REMOVER
@@ -100,6 +102,13 @@ def main ():
                 60,
                 60
             )
+
+        porta_sala_musica = pygame.Rect(
+                1325,
+                632,
+                60,
+                60
+            )
         
         for ocorrencia in pygame.event.get ():
             #se apertar no botão de sair, sai.
@@ -111,7 +120,7 @@ def main ():
             if boneco_jogo.rect.colliderect(porta_biblioteca):
                 mapa_atual = "biblioteca"
 
-                # personagem aparece dentro da biblioteca
+                #personagem aparece dentro da biblioteca
                 boneco_jogo.rect.x = 1120
                 boneco_jogo.rect.y = 760
 
@@ -126,6 +135,13 @@ def main ():
             
                 boneco_jogo.rect.x = 280
                 boneco_jogo.rect.y = 428
+
+            elif boneco_jogo.rect.colliderect(porta_sala_musica):
+            mapa_atual = "sala_musica"
+        
+            #posição temporária
+            boneco_jogo.rect.x = 300
+            boneco_jogo.rect.y = 300
 
         elif mapa_atual == "biblioteca":
 
@@ -169,6 +185,9 @@ def main ():
         
                 boneco_jogo.rect.x = 1310
                 boneco_jogo.rect.y = 406
+
+        elif mapa_atual == "sala_de_musica":
+            pass
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
