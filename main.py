@@ -37,9 +37,9 @@ def main ():
     "principal": mapa.desenhar,
     "biblioteca": biblioteca.desenhar,
     "hardware": hardware.desenhar,
-    "area_privada": area_privada.desenhar
+    "area_privada": area_privada.desenhar,
     "robocin": robocin.desenhar,
-    "sala_musica": sala_musica.desenhar
+    "sala_musica": sala_de_musica.desenhar
     }
 
     fonte = pygame.font.SysFont(None, 28) #REMOVER
@@ -96,7 +96,7 @@ def main ():
                 60
             )
             
-            porta_saida_robocin = pygame.Rect(
+        porta_saida_robocin = pygame.Rect(
                 218,
                 428,
                 60,
@@ -111,7 +111,7 @@ def main ():
             )
 
         porta_saida_sala_musica = pygame.Rect(
-                827,
+                826,
                 100,
                 60,
                 60
@@ -144,11 +144,11 @@ def main ():
                 boneco_jogo.rect.y = 428
 
             elif boneco_jogo.rect.colliderect(porta_sala_musica):
-            mapa_atual = "sala_musica"
+                mapa_atual = "sala_musica"
         
-            #posição temporária
-            boneco_jogo.rect.x = 300
-            boneco_jogo.rect.y = 300
+                #posicao que o personagem aparece
+                boneco_jogo.rect.x = 825
+                boneco_jogo.rect.y = 240
 
         elif mapa_atual == "biblioteca":
 
@@ -159,7 +159,7 @@ def main ():
                 boneco_jogo.rect.x = 340
                 boneco_jogo.rect.y = 340
 
-            if boneco_jogo.rect.colliderect(porta_hardware):
+            elif boneco_jogo.rect.colliderect(porta_hardware):
                 mapa_atual = "hardware"
             
                 #aparece logo abaixo da porta norte
@@ -193,15 +193,15 @@ def main ():
                 boneco_jogo.rect.x = 1310
                 boneco_jogo.rect.y = 406
 
-        elif mapa_atual == "sala_de_musica":
+        elif mapa_atual == "sala_musica":
             
             if boneco_jogo.rect.colliderect(porta_saida_sala_musica):
 
                 mapa_atual = "principal"
         
-                # personagem volta para o corredor
-                boneco_jogo.rect.x = 1230
-                boneco_jogo.rect.y = 640
+                #personagem volta para o corredor
+                boneco_jogo.rect.x = 1326
+                boneco_jogo.rect.y = 572
 
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
