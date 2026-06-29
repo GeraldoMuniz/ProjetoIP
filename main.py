@@ -127,8 +127,8 @@ def main ():
             )
             
         porta_saida_mesanino = pygame.Rect(
-                476,
-                368,
+                829,
+                90,
                 60,
                 60
             )
