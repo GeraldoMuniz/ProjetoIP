@@ -3,17 +3,17 @@ import tela
 from personagens.boneco import Boneco
 from personagens.vilao import Inimigo
 from objetos import chave
-import mapa
-import biblioteca
-import hardware
-import area_privada
-import robocin
-import sala_de_musica
-import mesanino
-import anfiteatro
-import banheiro
-import helpdesk
-import laboratorio 
+from mapas import mapa
+import mapas.biblioteca as biblioteca
+import mapas.hardware as hardware
+import mapas.area_privada as area_privada
+import mapas.robocin as robocin
+import mapas.sala_de_musica as sala_de_musica
+import mapas.mesanino as mesanino
+import mapas.anfiteatro as anfiteatro
+import mapas.banheiro as banheiro
+import mapas.helpdesk as helpdesk
+import mapas.laboratorio as laboratorio 
 from colisoes.principal import paredes_principal
 
 def desenhar_coracoes (tela_jogo, vida_atual):
