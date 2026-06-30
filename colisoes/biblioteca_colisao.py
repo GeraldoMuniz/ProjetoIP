@@ -3,7 +3,7 @@ import pygame
 paredes_biblioteca = [
   
     #PAREDES EXTERNAS
-  
+
     #topo
     pygame.Rect(20, 20, 1620, 20),
 
@@ -13,81 +13,111 @@ paredes_biblioteca = [
     #direita
     pygame.Rect(1620, 20, 20, 800),
 
-    #base esquerda da porta
-    pygame.Rect(20, 800, 640, 20),
+    #base esquerda
+    pygame.Rect(60, 820, 220, 20),
 
-    #base direita da porta
-    pygame.Rect(760, 800, 880, 20),
+    #entre as portas
+    pygame.Rect(390, 820, 830, 20),
 
-    #ESTANTES SUPERIORES
-  
-    pygame.Rect(340, 65, 120, 45),
-    pygame.Rect(500, 65, 250, 45),
-    pygame.Rect(940, 65, 250, 45),
-    pygame.Rect(1250, 65, 180, 45),
+    #base direita
+    pygame.Rect(1330, 820, 310, 20),
 
-    #CANTO SUPERIOR ESQUERDO
-  
-    pygame.Rect(45, 85, 70, 170),
-    pygame.Rect(120, 40, 170, 120),
+    #SETOR SUPERIOR
 
-    #CANTO SUPERIOR DIREITO
-  
-    pygame.Rect(1370, 45, 180, 120),
+    #mesa superior esquerda
+    pygame.Rect(75, 77, 170, 120),
 
-    #MESAS GRANDES
+    #estante superior esquerda
+    pygame.Rect(350, 75, 100, 100),
 
-    pygame.Rect(120, 320, 130, 110),
-    pygame.Rect(520, 170, 180, 70),
-    pygame.Rect(860, 170, 120, 70),
-    pygame.Rect(1070, 180, 150, 80),
-    pygame.Rect(1450, 180, 90, 90),
-  
-    #ESTANTES ESQUERDA
+    #estante superior central
+    pygame.Rect(490, 55, 300, 100),
 
-    pygame.Rect(250, 250, 120, 70),
-    pygame.Rect(260, 520, 140, 70),
-    pygame.Rect(90, 610, 140, 70),
+    #mesa central superior
+    pygame.Rect(495, 195, 260, 70),
 
-    #ESTANTES CENTRAIS
+    #mesa pequena superior                  #aq
+    pygame.Rect(865, 205, 120, 70),
 
-    pygame.Rect(470, 250, 55, 120),
-    pygame.Rect(620, 250, 55, 140),
+    #estante superior direita          #ok
+    pygame.Rect(930, 55, 240, 100),
 
-    pygame.Rect(620, 550, 140, 70),
+    #estante horizontal direita
+    pygame.Rect(1060, 215, 175, 90),
 
-    pygame.Rect(450, 640, 70, 120),
-    pygame.Rect(540, 640, 120, 120),
+    #mesa superior direita       #ok
+    pygame.Rect(1380, 140, 100, 65),
 
-    # GLOBO CENTRAL
+    #estante superior extrema direita
+    pygame.Rect(1220, 50, 240, 100),
 
-    pygame.Rect(740, 290, 120, 120),
+    #globo central
+    pygame.Rect(790, 400, 90, 90),
 
-    # ESTANTES DIREITA DO GLOBO
+    #estante vertical esquerda
+    pygame.Rect(495, 320, 70, 150),
 
-    pygame.Rect(920, 250, 55, 140),
-    pygame.Rect(1090, 260, 55, 150),
-    pygame.Rect(1110, 350, 150, 70),
-  
-    # REGIÃO INFERIOR CENTRAL
+    #estante vertical central
+    pygame.Rect(630, 350, 70, 170),
 
-    pygame.Rect(860, 560, 60, 120),
-    pygame.Rect(1060, 600, 160, 70),
+    #estante vertical direita
+    pygame.Rect(960, 350, 55, 150),             #OKOKOKOK
 
-    # ESTANTES DIREITA
+    #SETOR ESQUERDO
 
-    pygame.Rect(1370, 260, 60, 160),
-    pygame.Rect(1370, 420, 60, 120),
+    #mesa grande esquerda
+    pygame.Rect(150, 360, 90, 160),             #ok
 
-    pygame.Rect(1450, 500, 110, 80),
+    #estante horizontal esquerda                     #ok
+    pygame.Rect(240, 250, 130, 70),
 
-    pygame.Rect(1290, 600, 120, 90),
-  
-    pygame.Rect(1440, 700, 120, 80),
+    #estante horizontal meio-esquerda
+    pygame.Rect(300, 520, 160, 70),
 
-    # REGIÃO DA PORTA SUL
+    #estante vertical inferior esquerda
+    pygame.Rect(50, 540, 90, 130),
 
-    pygame.Rect(180, 710, 90, 90),
-    pygame.Rect(360, 700, 90, 100),
+    #estante ao lado da porta do Hardware
+    pygame.Rect(200, 650, 110, 180),
+
+    #estante à direita da porta do Hardware
+    pygame.Rect(380, 690, 200, 180),
+
+    #CENTRO INFERIOR
+
+    #estante horizontal central
+    pygame.Rect(640, 580, 160, 100),
+
+    #estante vertical pequena
+    pygame.Rect(930, 580, 60, 120),
+
+    #SETOR DIREITO
+
+    #estante vertical superior direita              #ok
+    pygame.Rect(1360, 250, 70, 120),
+
+    #estante vertical central direita             #ok
+    pygame.Rect(1390, 420, 70, 150),
+
+    #estante horizontal centro-direita        #ok
+    pygame.Rect(1110, 390, 155, 70),
+
+    #mesa da direita                #
+    pygame.Rect(1500, 230, 120, 100),
+
+    #estante em "L" (parte vertical)       #ok
+    pygame.Rect(1100, 400, 60, 150),
+
+    #estante horizontal inferior direita            #ok
+    pygame.Rect(1060, 630, 170, 110),
+
+    #estante inferior extrema direita                  #ok
+    pygame.Rect(1320, 650, 120, 90),
+
+    #estante ao lado da parede direita           #ok
+    pygame.Rect(1500, 500, 110, 130),
+
+    #estante inferior canto direito        #ok
+    pygame.Rect(1450, 760, 100, 50),
 
 ]
