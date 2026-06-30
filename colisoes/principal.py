@@ -1,16 +1,23 @@
 import pygame
 
 paredes_principal = [
-   #lago-parte superior
-    pygame.Rect(560, 330, 520, 120),
+   
+    #topo do lago
+    pygame.Rect(620, 350, 330, 70),
+
+    #centro esquerdo
+    pygame.Rect(540, 420, 220, 130),
 
     #centro
-    pygame.Rect(500, 400, 650, 170),
+    pygame.Rect(760, 420, 180, 180),
 
-    #inferior
-    pygame.Rect(550, 560, 550, 90),
+    #centro direito
+    pygame.Rect(940, 430, 140, 120),
 
-    #Limites mapa-topo
+    #parte inferior
+    pygame.Rect(650, 560, 320, 50),
+
+    #limites mapa-topo
     pygame.Rect(0, 0, 1672, 20),
     
     #esquerda
