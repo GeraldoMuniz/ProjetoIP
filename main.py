@@ -19,7 +19,7 @@ import mapas.banheiro as banheiro
 import mapas.helpdesk as helpdesk
 import mapas.laboratorio as laboratorio 
 from colisoes.principal import paredes_principal
-
+from colisoes.biblioteca import paredes_biblioteca
 
 
 def desenhar_coracoes (tela_jogo, vida_atual):
@@ -219,11 +219,15 @@ def main ():
             #se apertar no botão de sair, sai.
             if (ocorrencia.type == pygame.QUIT):
                 flag_rodar = False
-        #movimento do boneco
+                
+        #MOVIMENTO DO BONECO
         if mapa_atual == "principal":
             boneco_jogo.movimento(paredes_principal)
+        elif mapa_atual == "biblioteca":
+            boneco_jogo.movimento(paredes_biblioteca)
         else:
             boneco_jogo.movimento([])
+            
         if mapa_atual == "principal":
             if boneco_jogo.rect.colliderect(porta_biblioteca):
                 mapa_atual = "biblioteca"
@@ -400,6 +404,16 @@ def main ():
 
         #pinta a tela
         mapas[mapa_atual](tela_jogo)
+
+        #TESTE PARA VERIFICAR COLISOES AN BIBLIOTECA
+        if mapa_atual == "biblioteca":
+            for parede in paredes_biblioteca:
+                pygame.draw.rect(
+                    tela_jogo,
+                    (255, 0, 255),
+                    parede,
+                    2
+                )
         
         #desenha os objetos (filtrado pelo mapa atual)
         chave.desenhar_chaves(tela_jogo, mapa_atual)
