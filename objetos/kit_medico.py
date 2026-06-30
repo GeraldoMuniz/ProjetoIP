@@ -31,7 +31,9 @@ class KitMedico(Coletavel):
 lista_kits = [
     KitMedico(600,  400, "principal"),
     KitMedico(1000, 500, "biblioteca"),
-    KitMedico(800,  750, "hardware"),
+    KitMedico(800,  600, "hardware"),
+    KitMedico(700,  450, "robocin"),
+    KitMedico(1200, 600, "sala_musica"),
 ]
 
 def desenhar_kits(tela, mapa_atual):
