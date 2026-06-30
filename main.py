@@ -379,15 +379,15 @@ def main ():
 
         #logica de coleta
         for ch in chave.lista_chaves:
-            if ch.verificar_colisao(boneco_jogo.rect):
+            if ch.mapa == mapa_atual and ch.verificar_colisao(boneco_jogo.rect):
                 inventario.adicionar_chave(ch)
 
         for kt in kit_medico.lista_kits:
-            if kt.verificar_colisao(boneco_jogo.rect):
+            if kt.mapa == mapa_atual and kt.verificar_colisao(boneco_jogo.rect):
                 inventario.adicionar_kit(kt)
 
         for dc in dica.lista_dicas:
-            if dc.verificar_colisao(boneco_jogo.rect):
+            if dc.mapa == mapa_atual and dc.verificar_colisao(boneco_jogo.rect):
                 inventario.adicionar_dica(dc)
                 texto_dica_atual = dc.nome
 
