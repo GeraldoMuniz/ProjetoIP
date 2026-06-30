@@ -19,7 +19,7 @@ import mapas.banheiro as banheiro
 import mapas.helpdesk as helpdesk
 import mapas.laboratorio as laboratorio 
 from colisoes.principal import paredes_principal
-from colisoes.biblioteca import paredes_biblioteca
+from colisoes.biblioteca_colisao import paredes_biblioteca
 
 
 def desenhar_coracoes (tela_jogo, vida_atual):
