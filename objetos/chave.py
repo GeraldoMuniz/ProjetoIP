@@ -2,10 +2,11 @@ import pygame
 from objetos.coletavel import Coletavel
 
 class Chave(Coletavel):
-    def __init__(self, nome, cor, x, y, porta):
+    def __init__(self, nome, cor, x, y, porta, mapa):
         super().__init__(nome, x, y)
         self.cor = cor
         self.porta = porta  # qual porta essa chave abre
+        self.mapa = mapa    # em qual sala essa chave aparece
 
     def desenhar(self, tela):
         if not self.pegou:
@@ -16,11 +17,12 @@ class Chave(Coletavel):
 # azul: fica na área privada -> abre a entrada do laboratório de hardware
 # mestra: fica no robôcin -> abre a saída do laboratório de hardware
 lista_chaves = [
-    Chave("Chave Vermelha", (220, 20, 60),  0, 0, "Área Privada"),
-    Chave("Chave Azul",     (0, 120, 255),  0, 0, "Entrada do Laboratório"),
-    Chave("Chave Mestra",   (255, 215, 0),  0, 0, "Saída do Laboratório"),
+    Chave("Chave Vermelha", (220, 20, 60),  900,  500, "Área Privada",    "sala_musica"),
+    Chave("Chave Azul",     (0, 120, 255),  1000, 350, "Laboratório",    "area_privada"),
+    Chave("Chave Mestra",   (255, 215, 0),  1100, 550, "Saída Hardware", "robocin"),
 ]
 
-def desenhar_chaves(tela):
+def desenhar_chaves(tela, mapa_atual):
     for chave in lista_chaves:
-        chave.desenhar(tela)
+        if chave.mapa == mapa_atual:
+            chave.desenhar(tela)

@@ -3,6 +3,10 @@ import tela
 from personagens.boneco import Boneco
 from personagens.vilao import Inimigo
 from objetos import chave
+from objetos import kit_medico
+from objetos import dica
+from objetos.inventario import Inventario
+
 from mapas import mapa
 import mapas.biblioteca as biblioteca
 import mapas.hardware as hardware
@@ -16,6 +20,8 @@ import mapas.helpdesk as helpdesk
 import mapas.laboratorio as laboratorio 
 from colisoes.principal import paredes_principal
 
+
+
 def desenhar_coracoes (tela_jogo, vida_atual):
     largura_coracao = 20
     espacamento = 10
@@ -27,6 +33,16 @@ def desenhar_coracoes (tela_jogo, vida_atual):
         pygame.draw.circle(tela_jogo, (255, 0, 0), (x + 15, pos_y + 5), 6)
         pygame.draw.polygon(tela_jogo, (255, 0, 0), [(x, pos_y + 7), (x + 20, pos_y + 7), (x + 10, pos_y + 18)])
 
+def desenhar_hud(tela_jogo, fonte, inventario):
+    textos = [
+        f"Chaves: {len(inventario.chaves)}/3",
+        f"Kits: {len(inventario.kits)}",
+        f"Dicas: {len(inventario.dicas)}/3",
+    ]
+    for i, txt in enumerate(textos):
+        superficie = fonte.render(txt, True, (255, 255, 255))
+        tela_jogo.blit(superficie, (20, 50 + i * 30))
+
 def main ():
     pygame.init ()
     #cria a tela
@@ -35,7 +51,8 @@ def main ():
     boneco_jogo = Boneco (vida = 3)
     inimigo_jogo = Inimigo (x = 200, y = 200, velocidade = 0.8) #cria o vilao
 
-    chaves_coletadas = 0
+    inventario = Inventario()
+    texto_dica_atual = ""
     
     mapa_atual = "principal"
 
@@ -367,27 +384,52 @@ def main ():
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
 
-        #logica chave
-        chave.desenhar_chaves (tela_jogo)
+        #logica de coleta
+        for ch in chave.lista_chaves:
+            if ch.mapa == mapa_atual and ch.verificar_colisao(boneco_jogo.rect):
+                inventario.adicionar_chave(ch)
+
+        for kt in kit_medico.lista_kits:
+            if kt.mapa == mapa_atual and kt.verificar_colisao(boneco_jogo.rect):
+                inventario.adicionar_kit(kt)
+
+        for dc in dica.lista_dicas:
+            if dc.mapa == mapa_atual and dc.verificar_colisao(boneco_jogo.rect):
+                inventario.adicionar_dica(dc)
+                texto_dica_atual = dc.nome
+
         #pinta a tela
         mapas[mapa_atual](tela_jogo)
         
-        #desenha os objetos
-        chave.desenhar_chaves (tela_jogo)
-        #desenhar inimigos
+        #desenha os objetos (filtrado pelo mapa atual)
+        chave.desenhar_chaves(tela_jogo, mapa_atual)
+        kit_medico.desenhar_kits(tela_jogo, mapa_atual)
+        dica.desenhar_dicas(tela_jogo, mapa_atual)
+
+        #desenhar personagens
         pygame.draw.rect (tela_jogo, (50, 205, 50), boneco_jogo.rect)
         pygame.draw.rect (tela_jogo, (255, 0, 0), inimigo_jogo.rect)
 
         desenhar_coracoes (tela_jogo, boneco_jogo.vida)     #vida do personagem
+        desenhar_hud(tela_jogo, fonte, inventario)          #contador de coletaveis
 
-        mx, my = pygame.mouse.get_pos()
+        # desenha a ultima dica pega no topo da tela
+        if texto_dica_atual != "":
+            superficie_dica = fonte.render(texto_dica_atual, True, (255, 255, 0)) # Amarelo
+            rect_dica = superficie_dica.get_rect(center=(1672 // 2, 30))
+            tela_jogo.blit(superficie_dica, rect_dica)
+
+        
+        
+        """mx, my = pygame.mouse.get_pos()
         print(mx, my)
-        texto = fonte.render(
+        texto = fonte.render(            #ESSA PARTE SERVE CASO SEJA NECESSÁRIO VERIFICAR COORDENADAS
             f"Mouse: ({mx}, {my})",
             True,
             (255,255,255)
-        )
+        )"""
 
+        
         tela_jogo.blit(texto, (10,10))
 
         #atualiza a tela
