@@ -6,8 +6,9 @@ class KitMedico(Coletavel):
     cor_fundo = (255, 50, 50)
     cor_cruz = (255, 255, 255)
 
-    def __init__(self, x, y):
+    def __init__(self, x, y, mapa):
         super().__init__("Kit Médico", x, y)
+        self.mapa = mapa  #em qual sala esse kit aparece
 
     def usar(self, personagem):
         if personagem.vidas < personagem.VIDAS_MAX:
@@ -28,11 +29,12 @@ class KitMedico(Coletavel):
 
 #posicoes dos kits no mapa (ajustar depois com o pessoal dos mapas)
 lista_kits = [
-    KitMedico(600,  400),
-    KitMedico(1000, 500),
-    KitMedico(800,  750),
+    KitMedico(600,  400, "principal"),
+    KitMedico(1000, 500, "biblioteca"),
+    KitMedico(800,  750, "hardware"),
 ]
 
-def desenhar_kits(tela):
+def desenhar_kits(tela, mapa_atual):
     for kit in lista_kits:
-        kit.desenhar(tela)
+        if kit.mapa == mapa_atual:
+            kit.desenhar(tela)
