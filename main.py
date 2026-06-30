@@ -316,7 +316,7 @@ def main ():
         
                 #personagem volta para o corredor
                 boneco_jogo.rect.x = 1326
-                boneco_jogo.rect.y = 572
+                boneco_jogo.rect.y = 520
 
         elif mapa_atual == "mesanino":
 
