@@ -427,10 +427,10 @@ def main ():
             f"Mouse: ({mx}, {my})",
             True,
             (255,255,255)
-        )"""
+        )
 
         
-        tela_jogo.blit(texto, (10,10))
+        tela_jogo.blit(texto, (10,10))"""
 
         #atualiza a tela
         pygame.display.flip ()
