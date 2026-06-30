@@ -14,6 +14,7 @@ import anfiteatro
 import banheiro
 import helpdesk
 import laboratorio 
+from colisoes.principal import paredes_principal
 
 def desenhar_coracoes (tela_jogo, vida_atual):
     largura_coracao = 20
@@ -202,7 +203,10 @@ def main ():
             if (ocorrencia.type == pygame.QUIT):
                 flag_rodar = False
         #movimento do boneco
-        boneco_jogo.movimento ()
+        if mapa_atual == "principal":
+            boneco_jogo.movimento(paredes_principal)
+        else:
+            boneco_jogo.movimento([])
         if mapa_atual == "principal":
             if boneco_jogo.rect.colliderect(porta_biblioteca):
                 mapa_atual = "biblioteca"
