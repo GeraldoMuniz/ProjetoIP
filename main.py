@@ -404,16 +404,6 @@ def main ():
 
         #pinta a tela
         mapas[mapa_atual](tela_jogo)
-
-        #TESTE PARA VERIFICAR COLISOES AN BIBLIOTECA
-        if mapa_atual == "biblioteca":
-            for parede in paredes_biblioteca:
-                pygame.draw.rect(
-                    tela_jogo,
-                    (255, 0, 255),
-                    parede,
-                    2
-                )
         
         #desenha os objetos (filtrado pelo mapa atual)
         chave.desenhar_chaves(tela_jogo, mapa_atual)
