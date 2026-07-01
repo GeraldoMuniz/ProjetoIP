@@ -441,7 +441,13 @@ def main ():
         dica.desenhar_dicas(tela_jogo, mapa_atual)
 
         #desenhar personagens
-        pygame.draw.rect (tela_jogo, (50, 205, 50), boneco_jogo.rect)
+        tela_jogo.blit(
+            boneco_jogo.sprite,
+            (
+                boneco_jogo.rect.x - 4,
+                boneco_jogo.rect.y - 24
+            )
+        )
         pygame.draw.rect (tela_jogo, (255, 0, 0), inimigo_jogo.rect)
 
         desenhar_coracoes (tela_jogo, boneco_jogo.vida)     #vida do personagem
