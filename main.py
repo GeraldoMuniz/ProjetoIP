@@ -20,6 +20,15 @@ import mapas.helpdesk as helpdesk
 import mapas.laboratorio as laboratorio 
 from colisoes.principal import paredes_principal
 from colisoes.biblioteca_colisao import paredes_biblioteca
+from colisoes.banheiro_colisao import paredes_banheiro
+from colisoes.anfiteatro_colisao import paredes_anfiteatro
+from colisoes.area_privada_colisao import paredes_area_privada
+from colisoes.hardware_colisao import paredes_hardware
+from colisoes.helpdesk_colisao import paredes_helpdesk
+from colisoes.laboratorio_colisao import paredes_laboratorio
+from colisoes.mesanino_colisao import paredes_mesanino
+from colisoes.robocin_colisao import paredes_robocin
+from colisoes.sala_de_musica_colisao import paredes_sala_de_musica
 
 
 def desenhar_coracoes (tela_jogo, vida_atual):
@@ -225,9 +234,28 @@ def main ():
             boneco_jogo.movimento(paredes_principal)
         elif mapa_atual == "biblioteca":
             boneco_jogo.movimento(paredes_biblioteca)
+        elif mapa_atual == "anfiteatro":
+            boneco_jogo.movimento (paredes_anfiteatro)
+        elif mapa_atual == "area_privada":
+            boneco_jogo.movimento (paredes_area_privada)
+        elif mapa_atual == "banheiro":
+            boneco_jogo.movimento (paredes_banheiro)
+        elif mapa_atual == "hardware":
+            boneco_jogo.movimento (paredes_hardware)
+        elif mapa_atual == "helpdesk":
+            boneco_jogo.movimento (paredes_helpdesk)
+        elif mapa_atual == "laboratorio":
+            boneco_jogo.movimento (paredes_laboratorio)
+        elif mapa_atual == "mesanino":
+            boneco_jogo.movimento (paredes_mesanino)
+        elif mapa_atual == "robocin":
+            boneco_jogo.movimento (paredes_robocin)
+        elif mapa_atual == "sala_musica":
+            boneco_jogo.movimento (paredes_sala_de_musica)
         else:
             boneco_jogo.movimento([])
-            
+        
+            #MAPAS
         if mapa_atual == "principal":
             if boneco_jogo.rect.colliderect(porta_biblioteca):
                 mapa_atual = "biblioteca"
@@ -388,6 +416,8 @@ def main ():
         inimigo_jogo.perseguir (boneco_jogo)        #interações do vilao
         inimigo_jogo.verificar_colisao (boneco_jogo)
 
+
+
         #logica de coleta
         for ch in chave.lista_chaves:
             if ch.mapa == mapa_atual and ch.verificar_colisao(boneco_jogo.rect):
@@ -415,7 +445,7 @@ def main ():
         pygame.draw.rect (tela_jogo, (255, 0, 0), inimigo_jogo.rect)
 
         desenhar_coracoes (tela_jogo, boneco_jogo.vida)     #vida do personagem
-        desenhar_hud(tela_jogo, fonte, inventario)          #contador de coletaveis
+        desenhar_hud (tela_jogo, fonte, inventario)          #contador de coletaveis
 
         # desenha a ultima dica pega no topo da tela
         if texto_dica_atual != "":
@@ -423,7 +453,6 @@ def main ():
             rect_dica = superficie_dica.get_rect(center=(1672 // 2, 30))
             tela_jogo.blit(superficie_dica, rect_dica)
 
-        
         
         """mx, my = pygame.mouse.get_pos()
         print(mx, my)
@@ -435,6 +464,12 @@ def main ():
 
         
         tela_jogo.blit(texto, (10,10))"""
+
+
+        """for parede in paredes_hardware:              #ESSA PARA VER A COORDENADA DO MOUSE SE PRECISAR
+            pygame.draw.rect (tela_jogo, (255,0,255), parede, 2)"""
+
+
 
         #atualiza a tela
         pygame.display.flip ()
