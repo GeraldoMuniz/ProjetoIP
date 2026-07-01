@@ -462,7 +462,13 @@ def main ():
                 boneco_jogo.rect.y - 24
             )
         )
-        pygame.draw.rect (tela_jogo, (255, 0, 0), inimigo_jogo.rect)
+        tela_jogo.blit(
+            inimigo_jogo.sprite,
+            (
+                inimigo_jogo.rect.x - 4,
+                inimigo_jogo.rect.y - 16
+            )
+        )
 
         desenhar_coracoes (tela_jogo, boneco_jogo.vida)     #vida do personagem
         desenhar_hud (tela_jogo, fonte, inventario)          #contador de coletaveis
