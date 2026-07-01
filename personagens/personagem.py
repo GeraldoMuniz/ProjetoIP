@@ -1,13 +1,15 @@
 import pygame
 
 class Personagem (pygame.sprite.Sprite):                            #herda classe existente para facilitar
-    def __init__(self, nome, vida, velocidade, x, y, tamanho):
+    def __init__(self, nome, vida, velocidade, x, y, tamanho, cooldown_ataque = 1500):
         super().__init__()                      #recursos sprite
         self.nome = nome                        #construtor
         self.vida = vida
         self.velocidade = velocidade
         self.rect = pygame.Rect (x, y, tamanho, tamanho) #saber tudo sobre o personagem
         self.tamanho = tamanho
+        self.cooldown_ataque = cooldown_ataque
+        self.ultimo_ataque = 0
 
     def limite_mapa (self, largura_mapa = 1672, altura_mapa = 941):
         if (self.rect.x < 0):
@@ -22,6 +24,9 @@ class Personagem (pygame.sprite.Sprite):                            #herda class
 
 
     def dano (self, quantidade):
-        self.vida -= quantidade
-        if (self.vida <= 0):            #em desenvolvimento
-            print ("perdeu")
+        tempo = pygame.time.get_ticks ()
+        if (tempo - self.ultimo_ataque >= self.cooldown_ataque):
+            self.vida -= quantidade
+            self.ultimo_ataque = tempo
+                    #em desenvolvimento
+

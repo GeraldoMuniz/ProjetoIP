@@ -228,7 +228,13 @@ def main ():
             #se apertar no botão de sair, sai.
             if (ocorrencia.type == pygame.QUIT):
                 flag_rodar = False
+
+
+        if (boneco_jogo.vida <= 0):
+            flag_rodar = False       #CASO O BONECO FIQUE COM A VIDA IGUAL A 0 OU INFERIOR A 0: EM DESENVOLVIMENTO
+                                    #PRECISA PREPARAR TELA DE DERROTA
                 
+
         #MOVIMENTO DO BONECO
         if mapa_atual == "principal":
             boneco_jogo.movimento(paredes_principal)
