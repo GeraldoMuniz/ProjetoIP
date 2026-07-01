@@ -7,7 +7,7 @@ class Boneco (Personagem):      #herda de personagem
 
         self.sprite_frente = pygame.image.load("imagem/vista_frente.png").convert_alpha()
         self.sprite_costas = pygame.image.load("imagem/vista_costas.png").convert_alpha()
-        self.sprite_direita = pygame.image.load("imagem/vista_direita_dois.png").convert_alpha()
+        self.sprite_direita = pygame.image.load("imagem/vista_direita_tres.png").convert_alpha()
         self.sprite_esquerda = pygame.image.load("imagem/vista_esquerda.png").convert_alpha()
 
         #diminuir o tamanho
