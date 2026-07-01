@@ -85,6 +85,8 @@ def main ():
 
     chaves_coletadas = []
 
+    historico_dicas = []
+
     while (flag_rodar):
         porta_biblioteca = pygame.Rect(
             317,
@@ -470,6 +472,63 @@ def main ():
             superficie_dica = fonte.render(texto_dica_atual, True, (255, 255, 0)) # Amarelo
             rect_dica = superficie_dica.get_rect(center=(1672 // 2, 30))
             tela_jogo.blit(superficie_dica, rect_dica)
+            if (texto_dica_atual not in historico_dicas):
+                historico_dicas.append (texto_dica_atual)
+        
+        if (len(historico_dicas) > 0):
+            posicao_y = 700
+            for dicas_coletadas in historico_dicas:
+                superficie_hist = fonte.render(dicas_coletadas, True, (255, 255, 255))
+                tela_jogo.blit(superficie_hist, (20, posicao_y))
+                posicao_y += 30
+
+
+
+        if (boneco_jogo.rect.colliderect(porta_area_privada) and "Chave Mestra" not in chaves_coletadas):
+            texto_chave_mestra = ("Você precisa da Chave Mestra para abrir.")
+            imagem_texto = fonte.render (texto_chave_mestra, True, (255, 255, 255))
+            tela_jogo.blit (imagem_texto, (650, 80))
+            teclas = pygame.key.get_pressed()
+            if teclas[pygame.K_LEFT] or teclas[pygame.K_a]:
+                boneco_jogo.rect.x += boneco_jogo.velocidade
+            if teclas[pygame.K_RIGHT] or teclas[pygame.K_d]:
+                boneco_jogo.rect.x -= boneco_jogo.velocidade
+            if teclas[pygame.K_UP] or teclas[pygame.K_w]:
+                boneco_jogo.rect.y += boneco_jogo.velocidade
+            if teclas[pygame.K_DOWN] or teclas[pygame.K_s]:
+                boneco_jogo.rect.y -= boneco_jogo.velocidade
+
+        elif (boneco_jogo.rect.colliderect(porta_robocin) and "Chave Vermelha" not in chaves_coletadas):
+            texto_chave_vermelha = ("Você precisa da Chave Vermelha para abrir.")
+            imagem_texto = fonte.render (texto_chave_vermelha, True, (255, 255, 255))
+            tela_jogo.blit (imagem_texto, (650, 80))
+            teclas = pygame.key.get_pressed()
+            if teclas[pygame.K_LEFT] or teclas[pygame.K_a]:
+                boneco_jogo.rect.x += boneco_jogo.velocidade
+            if teclas[pygame.K_RIGHT] or teclas[pygame.K_d]:
+                boneco_jogo.rect.x -= boneco_jogo.velocidade
+            if teclas[pygame.K_UP] or teclas[pygame.K_w]:
+                boneco_jogo.rect.y += boneco_jogo.velocidade
+            if teclas[pygame.K_DOWN] or teclas[pygame.K_s]:
+                boneco_jogo.rect.y -= boneco_jogo.velocidade
+
+        elif (boneco_jogo.rect.colliderect(porta_hardware) and "Chave Azul" not in chaves_coletadas):
+            texto_chave_azul = ("Você precisa da Chave Azul para abrir.")
+            imagem_texto = fonte.render (texto_chave_azul, True, (255, 255, 255))
+            tela_jogo.blit (imagem_texto, (650, 80))
+            teclas = pygame.key.get_pressed()
+            if teclas[pygame.K_LEFT] or teclas[pygame.K_a]:
+                boneco_jogo.rect.x += boneco_jogo.velocidade
+            if teclas[pygame.K_RIGHT] or teclas[pygame.K_d]:
+                boneco_jogo.rect.x -= boneco_jogo.velocidade
+            if teclas[pygame.K_UP] or teclas[pygame.K_w]:
+                boneco_jogo.rect.y += boneco_jogo.velocidade
+            if teclas[pygame.K_DOWN] or teclas[pygame.K_s]:
+                boneco_jogo.rect.y -= boneco_jogo.velocidade
+            
+            
+
+            
 
         
         """mx, my = pygame.mouse.get_pos()
@@ -481,8 +540,8 @@ def main ():
         )
 
         
-        tela_jogo.blit(texto, (10,10))"""
-
+        tela_jogo.blit(texto, (10,10))
+"""
 
         """for parede in paredes_hardware:              #ESSA PARA VER A COORDENADA DO MOUSE SE PRECISAR
             pygame.draw.rect (tela_jogo, (255,0,255), parede, 2)"""
