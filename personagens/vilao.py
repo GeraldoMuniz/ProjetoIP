@@ -9,7 +9,7 @@ class Inimigo (Personagem):
         self.posicao = pygame.math.Vector2 (x, y)     #declaração do campo de visao e posição do vilao
 
         self.sprite_frente = pygame.image.load("imagem/vilao_frente.png").convert_alpha()
-        self.sprite_costas = pygame.image.load("imagem/vilao _costas.png").convert_alpha()
+        self.sprite_costas = pygame.image.load("imagem/vilao_costas.png").convert_alpha()
         self.sprite_direita = pygame.image.load("imagem/vilao_direita.png").convert_alpha()
         self.sprite_esquerda = pygame.image.load("imagem/vilao_esquerda.png").convert_alpha()
 
@@ -40,12 +40,12 @@ class Inimigo (Personagem):
                 else:
                     self.sprite = self.sprite_costas
 
-                self.posicao += direcao * self.velocidade       #o vetor que vale 1 é multiplicado pela velocidade a cada frame
+            self.posicao += direcao * self.velocidade       #o vetor que vale 1 é multiplicado pela velocidade a cada frame
 
-                self.rect.x = int (self.posicao.x)
-                self.rect.y = int (self.posicao.y)      #garantir que seja inteiro
+            self.rect.x = int (self.posicao.x)
+            self.rect.y = int (self.posicao.y)      #garantir que seja inteiro
 
-                self.limite_mapa ()
+            self.limite_mapa ()
 
     def verificar_colisao (self, alvo):             #verifica se encostou no boneco
         if (self.rect.colliderect (alvo.rect)):
