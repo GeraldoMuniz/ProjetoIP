@@ -1,5 +1,5 @@
 import pygame
-import tela
+from todas_telas import tela, menu
 from personagens.boneco import Boneco
 from personagens.vilao import Inimigo
 from objetos import chave
