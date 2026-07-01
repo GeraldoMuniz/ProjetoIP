@@ -8,9 +8,20 @@ class Chave(Coletavel):
         self.porta = porta  # qual porta essa chave abre
         self.mapa = mapa    # em qual sala essa chave aparece
 
+        if nome == "Chave Vermelha":
+            self.imagem = pygame.image.load("imagem/chave_vermelha_transparente.png").convert_alpha()
+
+        elif nome == "Chave Azul":
+            self.imagem = pygame.image.load("imagem/chave_azul_transparente.png").convert_alpha()
+
+        elif nome == "Chave Mestra":
+            self.imagem = pygame.image.load("imagem/chave_mestra_transparente.png").convert_alpha()
+
+        self.imagem = pygame.transform.scale(self.imagem, (64, 64))
+
     def desenhar(self, tela):
         if not self.pegou:
-            pygame.draw.rect(tela, self.cor, self.rect)
+            tela.blit(self.imagem, self.rect)
 
 # chaves do jogo (posições x e y zeradas aguardando o Integrante 5)
 # vermelha: fica na sala de música -> abre a área privada
