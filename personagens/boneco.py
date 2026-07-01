@@ -5,6 +5,14 @@ class Boneco (Personagem):      #herda de personagem
     def __init__(self, nome = "Usuário", vida = 100, velocidade = 1, x = 795, y = 780, tamanho = 40): #valores padroes
         super().__init__(nome, vida, velocidade, x, y, tamanho)     #construtor já é chamado
 
+        self.sprite_frente = pygame.image.load("sprites/personagem/vista_frente.png").convert_alpha()
+        self.sprite_costas = pygame.image.load("sprites/personagem/vista_costas.png").convert_alpha()
+        self.sprite_direita = pygame.image.load("sprites/personagem/vista_direita.png").convert_alpha()
+        self.sprite_esquerda = pygame.image.load("sprites/personagem/vista_esquerda.png").convert_alpha()
+
+        #sprite inicial
+        self.sprite = self.sprite_costas
+
     def movimento (self, paredes):    #especificidade (selecionar o boneco atual)
         teclas = pygame.key.get_pressed()
     
