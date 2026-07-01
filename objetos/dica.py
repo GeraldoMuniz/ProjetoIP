@@ -10,9 +10,9 @@ class Dica(Coletavel):
         self.imagem = pygame.image.load("imagem/pista_transparente.png").convert_alpha()
         self.imagem = pygame.transform.scale(self.imagem, (32, 32))
 
-        def desenhar(self, tela):
-            if not self.pegou:
-                tela.blit(self.imagem, self.rect)
+    def desenhar(self, tela):
+        if not self.pegou:
+            tela.blit(self.imagem, self.rect)
 
 #dicas do jogo
 #o nome ja é o texto da dica
