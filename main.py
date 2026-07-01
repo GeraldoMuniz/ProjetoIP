@@ -83,6 +83,8 @@ def main ():
 
     flag_rodar = True
 
+    chaves_coletadas = []
+
     while (flag_rodar):
         porta_biblioteca = pygame.Rect(
             317,
@@ -270,13 +272,13 @@ def main ():
                 boneco_jogo.rect.x = 1120
                 boneco_jogo.rect.y = 760
 
-            elif boneco_jogo.rect.colliderect(porta_area_privada):
+            elif boneco_jogo.rect.colliderect(porta_area_privada) and "Chave Mestra" in chaves_coletadas:
                 mapa_atual = "area_privada"
             
                 boneco_jogo.rect.x = 339
                 boneco_jogo.rect.y = 798
 
-            elif boneco_jogo.rect.colliderect(porta_robocin):
+            elif boneco_jogo.rect.colliderect(porta_robocin) and "Chave Vermelha" in chaves_coletadas:
                 mapa_atual = "robocin"
             
                 boneco_jogo.rect.x = 280
@@ -329,7 +331,7 @@ def main ():
                 boneco_jogo.rect.x = 340
                 boneco_jogo.rect.y = 340
 
-            elif boneco_jogo.rect.colliderect(porta_hardware):
+            elif boneco_jogo.rect.colliderect(porta_hardware) and "Chave Azul" in chaves_coletadas:
                 mapa_atual = "hardware"
             
                 #aparece logo abaixo da porta norte
@@ -428,10 +430,14 @@ def main ():
         for ch in chave.lista_chaves:
             if ch.mapa == mapa_atual and ch.verificar_colisao(boneco_jogo.rect):
                 inventario.adicionar_chave(ch)
+                chaves_coletadas.append (ch.nome)
 
         for kt in kit_medico.lista_kits:
             if kt.mapa == mapa_atual and kt.verificar_colisao(boneco_jogo.rect):
                 inventario.adicionar_kit(kt)
+                boneco_jogo.vida += 1
+                if (boneco_jogo.vida > 3):
+                    boneco_jogo.vida = 3
 
         for dc in dica.lista_dicas:
             if dc.mapa == mapa_atual and dc.verificar_colisao(boneco_jogo.rect):
@@ -487,5 +493,4 @@ def main ():
         pygame.display.flip ()
     #encerra o programa
     pygame.quit ()
-
 main ()
