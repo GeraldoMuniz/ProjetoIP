@@ -1,9 +1,8 @@
 import pygame
 from personagens.personagem import Personagem
-import math
 
 class Boneco (Personagem):      #herda de personagem
-    def __init__(self, nome = "Usuário", vida = 100, velocidade = 1, x = 400, y = 300, tamanho = 40): #valores padroes
+    def __init__(self, nome = "Usuário", vida = 100, velocidade = 1, x = 795, y = 780, tamanho = 40): #valores padroes
         super().__init__(nome, vida, velocidade, x, y, tamanho)     #construtor já é chamado
 
     def movimento (self, paredes):    #especificidade (selecionar o boneco atual)

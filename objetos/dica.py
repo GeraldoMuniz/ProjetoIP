@@ -15,7 +15,7 @@ class Dica(Coletavel):
 #o nome ja é o texto da dica
 
 lista_dicas = [
-    Dica("A chave vermelha está onde a música toca",                            (220, 20, 60),  700,  400, "principal"),
+    Dica("A chave vermelha está onde a música toca",                            (220, 20, 60),  795,  695, "principal"),
     Dica("A chave azul está onde poucos têm acesso",                            (0, 120, 255),  700,  450, "biblioteca"),
     Dica("A chave mestra está onde os robôs competem",                          (255, 215, 0),  600,  500, "mesanino"),
 ]
