@@ -142,11 +142,20 @@ Durante o desenvolvimento do projeto, diversos conceitos estudados na disciplina
 * *Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?*
    *
 
+O maior erro foi não ter começado a estruturar o projeto em POO, pois futuramente tivemos que trocar todas as partes que não estavam em POO para POO de maneira definitiva (usando classes e suas características). Mas conseguimos lidar bem com toda essa transição, sem muitas dificuldades.
+
+
 * *Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?*
    *
 
+O maior desafio foram os mínimos detalhes, quando vai chegando perto do final e algo persiste a não ficar do jeito esperado. Lidamos de maneira positiva, com muita resiliência.
+
+
 * *Quais as lições aprendidas durante o projeto?*
    *
+
+Sempre definir, antes de tudo, o que vai ser utilizado e o que não vai no projeto (tecnologias e seus métodos), para não ficar trocando a lógica de partes do código que poderiam ser feitas de maneira mais sólida anteriormente.
+
 
 ## 9.🎮 Como jogar:
 
