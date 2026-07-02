@@ -4,6 +4,10 @@ tela_derrota = pygame.image.load(
     "imagem/tela_derrota.png"
 ).convert()
 
+tela_vitoria = pygame.image.load(
+    "imagem/tela_vitoria.png"
+).convert()
+
 #retangulo do tente novamente
 botao_reiniciar = pygame.Rect(500,657,666,142)
 
@@ -23,4 +27,26 @@ def mostrar_derrota(tela):
             if evento.type == pygame.MOUSEBUTTONDOWN:
 
                 if botao_reiniciar.collidepoint(evento.pos):
+                    return "reiniciar"
+                
+
+#retangulo jogar novamente 
+botao_vitoria = pygame.Rect(515,618,534,113)
+
+def mostrar_vitoria(tela):
+
+    tela.blit(tela_vitoria, (0, 0))
+    pygame.display.flip()
+
+    while True:
+
+        for evento in pygame.event.get():
+
+            if evento.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+
+            if evento.type == pygame.MOUSEBUTTONDOWN:
+
+                if botao_vitoria.collidepoint(evento.pos):
                     return "reiniciar"
