@@ -236,8 +236,13 @@ def main ():
 
 
         if boneco_jogo.vida <= 0:
-            mostrar_derrota(tela_jogo)
-            flag_rodar = False      #CASO O BONECO FIQUE COM A VIDA IGUAL A 0 OU INFERIOR A 0: EM DESENVOLVIMENTO
+        
+            resultado = mostrar_derrota(tela_jogo)
+        
+            if resultado == "reiniciar":
+                return main()
+        
+            flag_rodar = False    #CASO O BONECO FIQUE COM A VIDA IGUAL A 0 OU INFERIOR A 0: EM DESENVOLVIMENTO
                                     #PRECISA PREPARAR TELA DE DERROTA
                 
 
