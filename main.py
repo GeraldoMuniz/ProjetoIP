@@ -201,33 +201,13 @@ def main ():
                 60
             )
 
-        porta_helpdesk = pygame.Rect(
-                510,
-                794,
-                60,
-                60
-            )
+        porta_helpdesk = pygame.Rect(510,794,60,60)
 
-        porta_saida_helpdesk = pygame.Rect(
-                1550,
-                712,
-                60,
-                60
-            )
+        porta_saida_helpdesk = pygame.Rect(1550,712,60,60)
 
-        porta_laboratorio = pygame.Rect(
-                826,
-                212,
-                60,
-                60
-            )
+        porta_laboratorio = pygame.Rect(826,212,60,60)
 
-        porta_saida_laboratorio = pygame.Rect(
-                794,
-                845,
-                60,
-                60
-            )
+        porta_saida_laboratorio = pygame.Rect(794,845,60,60)
         
         for ocorrencia in pygame.event.get ():
             #se apertar no botão de sair, sai.
@@ -240,6 +220,11 @@ def main ():
             resultado = mostrar_derrota(tela_jogo)
         
             if resultado == "reiniciar":
+
+                chave.reiniciar_chaves()
+                kit_medico.reiniciar_kits()
+                dica.reiniciar_dicas()
+
                 return main()
         
             flag_rodar = False    #CASO O BONECO FIQUE COM A VIDA IGUAL A 0 OU INFERIOR A 0: EM DESENVOLVIMENTO
