@@ -1,5 +1,6 @@
 import pygame
 from todas_telas import tela, menu
+from todas_telas.telas_finais import mostrar_derrota
 from personagens.boneco import Boneco
 from personagens.vilao import Inimigo
 from objetos import chave
@@ -234,8 +235,9 @@ def main ():
                 flag_rodar = False
 
 
-        if (boneco_jogo.vida <= 0):
-            flag_rodar = False       #CASO O BONECO FIQUE COM A VIDA IGUAL A 0 OU INFERIOR A 0: EM DESENVOLVIMENTO
+        if boneco_jogo.vida <= 0:
+            mostrar_derrota(tela_jogo)
+            flag_rodar = False      #CASO O BONECO FIQUE COM A VIDA IGUAL A 0 OU INFERIOR A 0: EM DESENVOLVIMENTO
                                     #PRECISA PREPARAR TELA DE DERROTA
                 
 
