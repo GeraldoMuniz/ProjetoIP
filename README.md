@@ -1,10 +1,10 @@
-# 🏫 CInBeribe
+# CInBeribe
 
-## 1.📖 Sinopse:
+## 1. Sinopse:
 
 *Bem-vindo(a) ao Centro de Informática! Assuma o controle de um(a) aluno(a) perdido(a) pelos corredores do CIn e embarque em uma jornada de exploração pelo campus. Para sair, você precisará encontrar três chaves guardadas em salas trancadas — a Biblioteca, o RoboCin, a Sala de Música — e destrancar seu caminho até a saída. Mas cuidado: um vilão ronda os corredores e, se avistar você de perto, vai atrás com tudo. Explore o Hardware, a Área Privada, o Mesanino, o Anfiteatro, o Laboratório, o Helpdesk e até o Banheiro em busca de dicas e kits médicos para recuperar sua vida. Junte as três chaves, escape do perseguidor e prove que você conhece o CIn como a palma da sua mão!*
 
-## 2.🚹 Participantes:
+## 2. Participantes:
 
 * Carlos Roma
 * Geraldo Muniz
@@ -13,7 +13,7 @@
 * Glucia Freire
 * Juan Henrique
 
-## 3.🧱 Arquitetura do Projeto:
+## 3. Arquitetura do Projeto:
 
 O jogo foi desenvolvido com a biblioteca Pygame e estruturado de forma modular, separando responsabilidades em pacotes dedicados a personagens, objetos, cenários, colisões e telas. A estrutura conta com uma pasta `imagem/` para todos os sprites e mapas do jogo, e os seguintes pacotes na raiz:
 
@@ -98,7 +98,7 @@ main.py                      (loop principal do jogo)
 * **todas_telas/menu.py:** Gera a tela inicial do jogo, com o título "CInBeribe" e o botão para iniciar a partida.
 * **todas_telas/tela.py:** Centraliza a criação e configuração da janela do jogo.
 
-## 4.📸 Capturas de Tela:
+## 4. Capturas de Tela:
 
 *Mapa principal (hub que conecta todas as salas do CIn):*
 
@@ -108,7 +108,7 @@ main.py                      (loop principal do jogo)
 
 O menu exibe o título **"CInBeribe"** sobre a imagem do prédio do CIn (`imagem/Imagem_CIn.png`), com um botão vermelho "Começar" para dar início à exploração.
 
-## 5.🛠️ Ferramentas, bibliotecas e frameworks utilizados:
+## 5. Ferramentas, bibliotecas e frameworks utilizados:
 
 * Python 3.
 * **Biblioteca Pygame:** Biblioteca principal utilizada para a construção do jogo, responsável pela criação da janela e do loop principal, pela captura de eventos de teclado e mouse, pela renderização das imagens e formas geométricas (mapas, sprites, HUD) e pelo gerenciamento das entidades do jogo através de `pygame.Rect` para colisões e `pygame.math.Vector2` para a movimentação do vilão.
@@ -116,11 +116,11 @@ O menu exibe o título **"CInBeribe"** sobre a imagem do prédio do CIn (`imagem
 * **VS Code:** Editor de código utilizado para o desenvolvimento do projeto, facilitando a navegação entre os múltiplos módulos (personagens, objetos, mapas, colisões) e a identificação de erros de sintaxe durante a codificação.
 * Imagens dos mapas e sprites do jogador/vilão desenhadas especificamente para representar os ambientes reais do Centro de Informática.
 
-## 6.📝 Divisão de trabalho:
+## 6. Divisão de trabalho:
 
 *
 
-## 7.📚 Conceitos de Programação utilizados:
+## 7. Conceitos de Programação utilizados:
 
 Durante o desenvolvimento do projeto, diversos conceitos estudados na disciplina foram aplicados na prática:
 
@@ -137,27 +137,27 @@ Durante o desenvolvimento do projeto, diversos conceitos estudados na disciplina
 * **Geometria Computacional e Colisões:** Aplicação prática da classe `pygame.Rect`, calculando a sobreposição de hitboxes para detectar interações entre o jogador, o vilão, as paredes dos cenários, os coletáveis e as portas.
 * **Flags booleanas:** Uso de variáveis como `flag_rodar` e `pegou` para controlar o estado de execução do jogo e evitar que um mesmo item seja coletado mais de uma vez.
 
-## 8.📈 Aprendizados e Desafios:
+## 8. Aprendizados e Desafios:
 
 * *Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?*
-   *
+   
 
 O maior erro foi não ter começado a estruturar o projeto em POO, pois futuramente tivemos que trocar todas as partes que não estavam em POO para POO de maneira definitiva (usando classes e suas características). Mas conseguimos lidar bem com toda essa transição, sem muitas dificuldades.
 
 
 * *Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?*
-   *
+   
 
 O maior desafio foram os mínimos detalhes, quando vai chegando perto do final e algo persiste a não ficar do jeito esperado. Lidamos de maneira positiva, com muita resiliência.
 
 
 * *Quais as lições aprendidas durante o projeto?*
-   *
+   
 
 Sempre definir, antes de tudo, o que vai ser utilizado e o que não vai no projeto (tecnologias e seus métodos), para não ficar trocando a lógica de partes do código que poderiam ser feitas de maneira mais sólida anteriormente.
 
 
-## 9.🎮 Como jogar:
+## 9. Como jogar:
 
 * *Requisitos:*
     * Python 3.x instalado.
@@ -185,4 +185,4 @@ Sempre definir, antes de tudo, o que vai ser utilizado e o que não vai no proje
     * Instale a dependência do projeto: `pip install pygame`
     * Rode o arquivo `main.py`.
 
-# BOM JOGO E BOA SORTE PELOS CORREDORES DO CIn! 🏫
+# BOM JOGO E BOA SORTE PELOS CORREDORES DO CIn! 
