@@ -104,30 +104,26 @@ Extra: prints/ para pôr no README
 
 Mapa principal (hub que conecta todas as salas do CIn):
 
-[Mapa Principal](prints/mapa_principal.png)
+![Imagem Inicial](prints/imagem_cin.png), com um botão vermelho "Começar" para dar início à exploração.
 
-Tela inicial do jogo:
-
-O menu exibe o título *"CInBeribe"* sobre a imagem do prédio do CIn [Imagem Inicial](prints/imagem_cin.png), com um botão vermelho "Começar" para dar início à exploração.
-
-[Coletar dica](prints/dica_coletada.png)
+![Coletar dica](prints/dica_coletada.png)
 
 Quando coleta a dica.
 
-[Chave no Mapa](prints/chave_mapa.png)
-[Outra Chave](prints/outra_chave.png)
+![Chave no Mapa](prints/chave_mapa.png)
+![Outra Chave](prints/outra_chave.png)
 
 Mostra onde tem 2 das 3 chaves.
 
-[Saída do Mapa](prints/saída_mapa.png)
+![Saída do Mapa](prints/saída_mapa.png)
 
 Saída do Mapa.
 
-[Vitória](prints/tela_vitoria.png)
+![Vitória](prints/tela_vitoria.png)
 
 Tela de vitória.
 
-[Derrota](prints/tela_derrota.png)
+![Derrota](prints/tela_derrota.png)
 
 Tela de derrota.
 
