@@ -110,24 +110,24 @@ Tela inicial do jogo:
 
 O menu exibe o título *"CInBeribe"* sobre a imagem do prédio do CIn [Imagem Inicial](print/imagem_cin.png), com um botão vermelho "Começar" para dar início à exploração.
 
-[Coletar dica](dica_coletada.png)
+[Coletar dica](print/dica_coletada.png)
 
 Quando coleta a dica.
 
-[Chave no Mapa](chave_mapa.png)
-[Outra Chave](outra_chave.png)
+[Chave no Mapa](print/chave_mapa.png)
+[Outra Chave](print/outra_chave.png)
 
 Mostra onde tem 2 das 3 chaves.
 
-[Saída do Mapa](saída_mapa.png)
+[Saída do Mapa](print/saída_mapa.png)
 
 Saída do Mapa.
 
-[Vitória](tela_vitoria.png)
+[Vitória](print/tela_vitoria.png)
 
 Tela de vitória.
 
-[Derrota](tela_derrota.png)
+[Derrota](print/tela_derrota.png)
 
 Tela de derrota.
 
