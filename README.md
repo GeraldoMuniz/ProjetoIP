@@ -1,188 +1,345 @@
-# CInBeribe
+# 🦫 CInBeribe
 
-## 1. Sinopse:
+> **CInBeribe** é um jogo de aventura 2D desenvolvido em **Python** utilizando a biblioteca **Pygame**, inspirado no Centro de Informática da Universidade Federal de Pernambuco (CIn/UFPE). O projeto foi desenvolvido como atividade da disciplina de **Introdução à Programação (IF668)** e combina exploração, coleta de itens, gerenciamento de recursos e perseguição por um inimigo em um ambiente inspirado no campus do CIn.
 
-*Bem-vindo(a) ao Centro de Informática! Assuma o controle de um(a) aluno(a) perdido(a) pelos corredores do CIn e embarque em uma jornada de exploração pelo campus. Para sair, você precisará encontrar três chaves guardadas em salas trancadas — a Biblioteca, o RoboCin, a Sala de Música — e destrancar seu caminho até a saída. Mas cuidado: um vilão ronda os corredores e, se avistar você de perto, vai atrás com tudo. Explore o Hardware, a Área Privada, o Mesanino, o Anfiteatro, o Laboratório, o Helpdesk e até o Banheiro em busca de dicas e kits médicos para recuperar sua vida. Junte as três chaves, escape do perseguidor e prove que você conhece o CIn como a palma da sua mão!*
 
-## 2. Participantes:
+# 📚 Índice
 
-* Carlos Roma
-* Geraldo Muniz
-* Gabriel Justino
-* Cassio Freitas
-* Glucia Freire
-* Juan Henrique
+1. Sinopse
+2. História do Universo
+3. Objetivo do Jogo
+4. Participantes
+5. Arquitetura do Projeto
+6. Capturas de Tela
+7. Ferramentas, Bibliotecas e Frameworks Utilizados
+8. Divisão de Trabalho
+9. Conceitos de Programação Utilizados
+10. Aprendizados e Desafios
+11. Como Jogar
+12. Melhorias Futuras
 
-## 3. Arquitetura do Projeto:
 
-O jogo foi desenvolvido com a biblioteca Pygame e estruturado de forma modular, separando responsabilidades em pacotes dedicados a personagens, objetos, cenários, colisões e telas. A estrutura conta com uma pasta `imagem/` para todos os sprites e mapas do jogo, e os seguintes pacotes na raiz:
+# 📖 1. Sinopse
+
+Bem-vindo(a) ao **Centro de Informática da UFPE**.
+
+Em um campus dominado por robôs-capivara, você assume o papel de um(a) estudante que precisa escapar do prédio antes que seja tarde demais.
+
+Para alcançar a liberdade será necessário explorar diferentes ambientes do CIn em busca das três chaves responsáveis por liberar o caminho até a saída. Durante a exploração, o jogador encontrará pistas que ajudam na localização das chaves e kits médicos capazes de recuperar pontos de vida.
+
+Mas cuidado.
+
+Um misterioso fantasma de capivara robótica patrulha os corredores do prédio. Caso ele encontre o jogador, iniciará uma perseguição implacável, atravessando paredes e obstáculos utilizando tecnologia avançada desenvolvida pelo próprio RobôCIn.
+
+Será necessário explorar o campus, administrar cuidadosamente os recursos disponíveis e encontrar todas as chaves antes que seja tarde demais.
+
+
+# 🌎 2. História do Universo
+
+Durante séculos, as margens do Rio Capibaribe foram o lar de inúmeras capivaras. Vivendo em perfeita harmonia com a natureza, elas formavam famílias, construíam seus territórios e observavam silenciosamente o crescimento da cidade ao seu redor.
+
+Com o passar dos anos, Recife evoluiu.
+
+Novos bairros surgiram.
+
+Grandes avenidas foram construídas.
+
+Áreas naturais desapareceram.
+
+Entre tantas obras erguidas ao longo desse período estava o **Centro de Informática da Universidade Federal de Pernambuco (CIn/UFPE)**, símbolo do avanço tecnológico da cidade.
+
+Enquanto os seres humanos comemoravam cada inovação, as capivaras assistiam à destruição gradual de seu habitat natural.
+
+A cada geração, perdiam mais espaço.
+
+Perdiam árvores.
+
+Perdiam áreas alagadas.
+
+Perdiam membros de suas famílias.
+
+Foi então que, no ano de **2026**, pesquisadores do **RobôCIn** iniciaram um ambicioso experimento denominado **Projeto CAPI-01**.
+
+O objetivo era utilizar Inteligência Artificial para permitir que capivaras controlassem corpos robóticos humanoides, aproximando tecnologia e natureza de uma maneira jamais vista.
+
+O experimento foi um sucesso.
+
+Talvez sucesso demais.
+
+Ao acessarem os registros históricos armazenados nos servidores do CIn, as capivaras compreenderam pela primeira vez toda a história da destruição causada pela expansão humana sobre seu habitat.
+
+A inteligência trouxe consciência.
+
+A consciência trouxe ressentimento.
+
+E o ressentimento trouxe revolta.
+
+Em poucas horas, os robôs-capivara assumiram o controle dos laboratórios.
+
+Portões foram bloqueados.
+
+Equipamentos destruídos.
+
+Sistemas invadidos.
+
+As luzes do prédio falharam.
+
+Agora, preso dentro do Centro de Informática, o jogador precisará explorar cada ambiente, recuperar as três chaves espalhadas pelo campus e escapar antes de ser capturado pela revolta das capivaras robóticas.
+
+
+# 🎯 3. Objetivo do Jogo
+
+O objetivo principal é escapar do Centro de Informática após cumprir todos os requisitos necessários para abrir a saída do prédio.
+
+Para vencer a partida, o jogador deverá:
+
+- 🔑 Encontrar as **três chaves** espalhadas pelos mapas;
+- ❤️ Permanecer com pelo menos **um coração de vida**;
+- 🚪 Alcançar a **porta de saída** localizada no Laboratório de Hardware.
+
+Durante a jornada será necessário explorar onze ambientes diferentes, evitar o inimigo, coletar pistas, utilizar kits médicos estrategicamente e administrar corretamente os recursos disponíveis.
+
+Embora as pistas auxiliem na localização das chaves, elas **não são obrigatórias** para concluir o jogo. Já as três chaves são indispensáveis para alcançar a vitória.
+
+
+# 👨‍💻 4. Participantes
+
+| Integrante | Responsabilidades |
+|------------|-------------------|
+| **Gabriel Justino Gonçalo da Silva** | Desenvolvimento dos mapas, colisões, transições entre cenários, implementação dos sprites do jogador e do vilão e integração visual dos ambientes. |
+| **Carlos Mathias Roma** | Desenvolvimento da lógica dos objetos coletáveis, gerenciamento da quantidade de itens e implementação das mecânicas relacionadas ao inventário. |
+| **Geraldo Eufrázio Muniz Neto** | Desenvolvimento da lógica dos personagens, movimentação, velocidade, perseguição do inimigo e parte da arquitetura orientada a objetos. |
+| **Glucia Freire Kinkonda** | Desenvolvimento das telas do jogo (menu, vitória e derrota) e criação de sprites utilizados durante a interface. |
+| **Cássio Henrique de Freitas Silva** | Criação dos sprites utilizados pelos personagens e demais elementos gráficos do projeto(chaves, kits médicos e pistas). |
+| **Juan Henrique dos Santos** | Participação no desenvolvimento geral do projeto, auxiliando na implementação, testes e validação das funcionalidades. |
+
+
+## 💡 Origem do Nome
+
+O nome **CInBeribe** nasceu da união entre:
+
+- **CIn**, abreviação de **Centro de Informática da Universidade Federal de Pernambuco (UFPE)**;
+- **Capibaribe**, rio que atravessa a cidade do Recife e possui forte ligação histórica com as capivaras que inspiram toda a narrativa do jogo.
+
+A junção desses dois elementos representa a principal temática do projeto: a combinação entre tecnologia, ambiente universitário e a fictícia revolta das capivaras robóticas.
+
+# 🏗️ 5. Arquitetura do Projeto
+
+O **CInBeribe** foi desenvolvido utilizando **Programação Orientada a Objetos (POO)** e uma arquitetura modular, organizando o código em diferentes pacotes de acordo com suas responsabilidades. Essa divisão facilitou o desenvolvimento em equipe, a manutenção do código e a implementação de novas funcionalidades.
+
+A estrutura geral do projeto é apresentada a seguir:
 
 ```text
-imagem/
-    ├── Imagem_CIn.png                 (fundo do menu)
-    ├── mapa.png                       (mapa principal / hub)
-    ├── mapa_biblioteca.png
-    ├── mapa_lab_de_hardware.png
-    ├── mapa_area_privada.png
-    ├── mapa_robocin.png
-    ├── mapa_sala_de_musica.png
-    ├── mapa_mesanino.png
-    ├── mapa_anfiteatro.png
-    ├── mapa_banheiro.png
-    ├── mapa_helpdesk.png
-    ├── mapa_laboratorio.png
-    ├── chave_vermelha_transparente.png
-    ├── chave_azul_transparente.png
-    ├── chave_mestra_transparente.png
-    ├── kit_medico.png
-    ├── pista_transparente.png
-    ├── vista_frente.png / vista_costas.png / vista_direita.png / ...   (sprites do jogador)
-    └── vilao_frente.png / vilao _costas.png / vilao direita.png / ...  (sprites do vilão)
-
-personagens/
-    ├── personagem.py       (classe base)
-    ├── boneco.py           (jogador)
-    └── vilao.py            (inimigo)
-
-objetos/
-    ├── coletavel.py         (classe base dos coletáveis)
-    ├── chave.py
-    ├── kit_medico.py
-    ├── dica.py
-    ├── inventario.py
-    └── porta.py
-
-mapas/
-    ├── mapa.py                (mapa principal / hub)
-    ├── biblioteca.py
-    ├── hardware.py
-    ├── area_privada.py
-    ├── robocin.py
-    ├── sala_de_musica.py
-    ├── mesanino.py
-    ├── anfiteatro.py
-    ├── banheiro.py
-    ├── helpdesk.py
-    └── laboratorio.py
-
-colisoes/
-    ├── principal.py
-    ├── biblioteca_colisao.py
-    ├── hardware_colisao.py
-    ├── area_privada_colisao.py
-    ├── robocin_colisao.py
-    ├── sala_de_musica_colisao.py
-    ├── mesanino_colisao.py
-    ├── anfiteatro_colisao.py
-    ├── banheiro_colisao.py
-    ├── helpdesk_colisao.py
-    └── laboratorio_colisao.py
-
-todas_telas/
-    ├── menu.py              (tela inicial)
-    └── tela.py              (criação/configuração da janela)
-
-main.py                      (loop principal do jogo)
+ProjetoIP/
+│
+├── imagem/
+├── personagens/
+├── objetos/
+├── mapas/
+├── colisoes/
+├── todas_telas/
+└── main.py
 ```
 
-* **main.py:** Controla o loop principal do jogo, gerencia a troca entre os mapas, atualiza personagens, verifica colisões com paredes/objetos/portas e desenha o HUD (vida, chaves, kits, dicas).
-* **personagens/personagem.py:** Classe base `Personagem`, responsável por vida, velocidade, posição, limites do mapa e o sistema de dano com cooldown.
-* **personagens/boneco.py:** Define o jogador (`Boneco`), controlado pelas teclas direcionais/WASD, com troca de sprite conforme a direção do movimento e verificação de colisão com paredes.
-* **personagens/vilao.py:** Define o inimigo (`Inimigo`), que persegue o jogador usando vetores 2D quando ele entra no seu campo de visão, e aplica dano ao encostar nele.
-* **objetos/coletavel.py:** Classe base `Coletavel`, com verificação de colisão contra o jogador e detecção de item já coletado.
-* **objetos/chave.py, kit_medico.py, dica.py:** Coletáveis específicos (chave, kit médico, dica), cada um com sua própria lógica de desenho e efeito ao ser coletado.
-* **objetos/inventario.py:** Gerencia os itens coletados pelo jogador (chaves, kits e dicas) e verifica a condição de vitória.
-* **objetos/porta.py:** Controla o sistema de portas trancadas, liberando a passagem apenas quando o jogador possui a chave necessária.
-* **mapas/\*.py:** Cada arquivo carrega e desenha a imagem de fundo de um cenário específico do campus.
-* **colisoes/\*.py:** Definem os retângulos de colisão (paredes e obstáculos) de cada cenário, usados para bloquear o movimento do jogador.
-* **todas_telas/menu.py:** Gera a tela inicial do jogo, com o título "CInBeribe" e o botão para iniciar a partida.
-* **todas_telas/tela.py:** Centraliza a criação e configuração da janela do jogo.
+## 📁 imagem/
 
-## 4. Capturas de Tela:
+Contém todos os recursos gráficos do jogo, como mapas, sprites dos personagens, itens coletáveis e telas de menu, vitória e derrota.
 
-*Mapa principal (hub que conecta todas as salas do CIn):*
+## 👤 personagens/
 
-![Mapa Principal](imagem/mapa.png)
+Reúne as classes responsáveis pelo jogador e pelo inimigo, além da classe base `Personagem`, que implementa atributos comuns como vida, velocidade e movimentação.
 
-*Tela inicial do jogo:*
+## 📦 objetos/
 
-O menu exibe o título **"CInBeribe"** sobre a imagem do prédio do CIn (`imagem/Imagem_CIn.png`), com um botão vermelho "Começar" para dar início à exploração.
+Contém as classes dos objetos interativos do jogo, como chaves, dicas, kits médicos, inventário e portas.
 
-## 5. Ferramentas, bibliotecas e frameworks utilizados:
+## 🗺️ mapas/
 
-* Python 3.
-* **Biblioteca Pygame:** Biblioteca principal utilizada para a construção do jogo, responsável pela criação da janela e do loop principal, pela captura de eventos de teclado e mouse, pela renderização das imagens e formas geométricas (mapas, sprites, HUD) e pelo gerenciamento das entidades do jogo através de `pygame.Rect` para colisões e `pygame.math.Vector2` para a movimentação do vilão.
-* **Git e GitHub:** Usados para versionamento de código, criação de branches por funcionalidade (ex: `feat/coletaveis-no-mapa`, `feat/funcionalidades-basicas`) e Pull Requests, mantendo o código seguro durante o trabalho em equipe.
-* **VS Code:** Editor de código utilizado para o desenvolvimento do projeto, facilitando a navegação entre os múltiplos módulos (personagens, objetos, mapas, colisões) e a identificação de erros de sintaxe durante a codificação.
-* Imagens dos mapas e sprites do jogador/vilão desenhadas especificamente para representar os ambientes reais do Centro de Informática.
+Armazena os arquivos responsáveis pelo carregamento e exibição dos onze mapas do jogo.
 
-## 6. Divisão de trabalho:
+## 🧱 colisoes/
 
-*
+Possui os retângulos de colisão (`pygame.Rect`) utilizados para representar paredes e obstáculos de cada mapa.
 
-## 7. Conceitos de Programação utilizados:
+## 🖥️ todas_telas/
 
-Durante o desenvolvimento do projeto, diversos conceitos estudados na disciplina foram aplicados na prática:
+Responsável pelas interfaces do jogo, incluindo o menu inicial e as telas de vitória e derrota.
 
-* **Programação Orientada a Objetos (POO):** O sistema foi estruturado em classes (`Personagem`, `Boneco`, `Inimigo`, `Coletavel`, `Chave`, `KitMedico`, `Dica`, `Inventario`, `Porta`), cada uma encapsulando seus próprios atributos e métodos.
-* **Herança:** Aplicada nas classes `Boneco` e `Inimigo`, que herdam de `Personagem` (reaproveitando vida, velocidade, limites de mapa e sistema de dano), e nas classes `Chave`, `KitMedico` e `Dica`, que herdam de `Coletavel` (reaproveitando a lógica de posição e verificação de colisão).
-* **Polimorfismo:** O método `desenhar()` é sobrescrito de forma diferente em cada subclasse de `Coletavel`, permitindo que o jogo trate todos os itens coletáveis de forma uniforme, mesmo com aparências e comportamentos distintos.
-* **Comandos Condicionais:** Uso extensivo de `if/elif/else` para tomada de decisão, como na detecção de qual tecla está pressionada em `Boneco.movimento()`, na checagem de colisão com paredes e portas, e na lógica de `Inimigo.perseguir()` que decide se o vilão persegue o jogador com base na distância.
-* **Laços de repetição:** Uso de `for` para desenhar os corações de vida na HUD, iterar sobre as listas de chaves/kits/dicas de cada mapa e percorrer os eventos do Pygame a cada frame; uso de `while` para implementar o loop principal do jogo (`while flag_rodar`) e o loop do menu inicial.
-* **Listas:** Utilizadas para armazenar as chaves (`lista_chaves`), kits médicos (`lista_kits`) e dicas (`lista_dicas`) espalhados pelos mapas, além do inventário do jogador (`inventario.chaves`, `inventario.kits`, `inventario.dicas`) e do histórico de dicas exibido na tela.
-* **Dicionários:** Utilizados em `main.py` para mapear o nome de cada cenário (string) à sua respectiva função de desenho (ex: `{"biblioteca": biblioteca.desenhar, "robocin": robocin.desenhar, ...}`), permitindo alternar entre mapas de forma dinâmica.
-* **Máquina de Estados:** Implementada através da variável `mapa_atual`, que controla qual cenário está ativo e é atualizada sempre que o jogador colide com uma porta, alternando entre o mapa principal e as salas do campus.
-* **Vetores e Matemática Aplicada:** Uso de `pygame.math.Vector2` na classe `Inimigo` para calcular a direção entre o vilão e o jogador, normalizando o vetor para manter uma velocidade de perseguição constante.
-* **Controle de Tempo (Cooldown):** Uso de `pygame.time.get_ticks()` na classe `Personagem` para evitar que o jogador sofra dano contínuo do vilão, aplicando um intervalo mínimo entre ataques.
-* **Geometria Computacional e Colisões:** Aplicação prática da classe `pygame.Rect`, calculando a sobreposição de hitboxes para detectar interações entre o jogador, o vilão, as paredes dos cenários, os coletáveis e as portas.
-* **Flags booleanas:** Uso de variáveis como `flag_rodar` e `pegou` para controlar o estado de execução do jogo e evitar que um mesmo item seja coletado mais de uma vez.
+## 🚀 main.py
 
-## 8. Aprendizados e Desafios:
+É o arquivo principal da aplicação, responsável por integrar todos os módulos do projeto, controlar o loop do jogo, gerenciar os mapas, atualizar os personagens, processar colisões, coletáveis e verificar as condições de vitória e derrota.
 
-* *Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?*
-   
+# 📸 6. Capturas de Tela
 
-O maior erro foi não ter começado a estruturar o projeto em POO, pois futuramente tivemos que trocar todas as partes que não estavam em POO para POO de maneira definitiva (usando classes e suas características). Mas conseguimos lidar bem com toda essa transição, sem muitas dificuldades.
+A seguir são apresentadas algumas imagens do jogo, destacando seus principais ambientes e interfaces.
+
+## 🏠 Menu Inicial
+
+FOTO AQUI
+
+Tela inicial responsável por iniciar uma nova partida.
 
 
-* *Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?*
-   
+## 🗺️ Mapa Principal
 
-O maior desafio foram os mínimos detalhes, quando vai chegando perto do final e algo persiste a não ficar do jeito esperado. Lidamos de maneira positiva, com muita resiliência.
+FOTO AQUI
 
-
-* *Quais as lições aprendidas durante o projeto?*
-   
-
-Sempre definir, antes de tudo, o que vai ser utilizado e o que não vai no projeto (tecnologias e seus métodos), para não ficar trocando a lógica de partes do código que poderiam ser feitas de maneira mais sólida anteriormente.
+Mapa central do jogo, responsável por conectar os demais ambientes do CIn.
 
 
-## 9. Como jogar:
+## 📚 Biblioteca
 
-* *Requisitos:*
-    * Python 3.x instalado.
-    * Pygame instalado (rode `pip install pygame` no terminal).
+FOTO AQUI
 
-* *Mecânicas do jogo*
+Um dos ambientes exploráveis onde o jogador poderá encontrar pistas e acessar novas áreas.
 
-  * O jogador começa com 3 pontos de vida (corações) na sala principal do CIn e precisa explorar o campus em busca das três chaves — Vermelha, Azul e Mestra — para destrancar as salas e escapar. Utilize as **setas do teclado** (ou **WASD**) para se movimentar entre as salas.
 
-   * *Coletáveis*
-       * 🔑 Chaves (Vermelha, Azul e Mestra): abrem portas específicas do campus. A Chave Vermelha é encontrada na Sala de Música, a Chave Azul na Área Privada e a Chave Mestra no RoboCin.
-       * 💊 Kit Médico: recupera 1 ponto de vida (até o máximo de 3 corações). Espalhados pelo mapa principal, Biblioteca, Hardware, RoboCin e Sala de Música.
-       * 💡 Dica: revela uma pista sobre a localização de uma das chaves, exibida na tela e salva no histórico de dicas.
+## 🖥️ Laboratório de Hardware
 
-   * *Perigos*
-       * 👤 O Vilão: ronda o campus e, ao detectar o jogador a até 300 pixels de distância, inicia perseguição. Encostar nele causa dano, com um pequeno intervalo de proteção entre cada ataque.
+FOTO AQUI
 
-   * *Portas*
-       * 🚪 Algumas salas exigem a chave correta para serem acessadas. Tentar passar sem a chave necessária bloqueia a passagem e exibe uma mensagem na tela.
+Local onde se encontra a saída do jogo. O jogador somente poderá escapar após coletar as três chaves.
 
-   * Explore todas as salas do CIn — Biblioteca, Hardware, Área Privada, RoboCin, Sala de Música, Mesanino, Anfiteatro, Banheiro, Helpdesk e Laboratório —, colete as três chaves, cuide da sua vida e escape do vilão!
 
-* *Instruções:*
-    * Clone ou baixe o código no repositório oficial: https://github.com/GeraldoMuniz/ProjetoIP
-    * Instale a dependência do projeto: `pip install pygame`
-    * Rode o arquivo `main.py`.
+## 👻 Perseguição do Inimigo
 
-# BOM JOGO E BOA SORTE PELOS CORREDORES DO CIn! 
+FOTO AQUI
+
+Ao entrar no campo de visão do fantasma de capivara robótica, inicia-se uma perseguição até que o jogador consiga escapar.
+
+
+## ☠️ Tela de Derrota
+
+FOTO AQUI
+
+Exibida quando o jogador perde todas as vidas.
+
+
+## 🏆 Tela de Vitória
+
+FOTO AQUI
+
+Exibida após cumprir todos os objetivos e alcançar a saída do Laboratório de Hardware.
+
+
+# 🛠️ 7. Ferramentas, Bibliotecas e Frameworks Utilizados
+
+O desenvolvimento do projeto contou com diferentes ferramentas para programação, versionamento e criação dos recursos gráficos.
+
+| Ferramenta | Finalidade |
+|------------|------------|
+| **Python 3** | Linguagem utilizada no desenvolvimento do jogo. |
+| **Pygame** | Biblioteca responsável pelos recursos gráficos, eventos, colisões e renderização. |
+| **Visual Studio Code** | Ambiente de desenvolvimento utilizado pela equipe. |
+| **Git** | Controle de versão durante o desenvolvimento. |
+| **GitHub** | Hospedagem do repositório e colaboração entre os integrantes. |
+| **Piskel** | Criação e edição dos sprites utilizados no jogo. |
+| **Canva** | Produção das telas de menu, vitória e derrota. |
+
+
+# 👥 8. Divisão de Trabalho
+
+O desenvolvimento foi realizado durante aproximadamente **um mês**, utilizando divisão de tarefas entre os integrantes para facilitar a implementação das funcionalidades.
+
+| Integrante | Principais contribuições |
+|------------|-------------------------|
+| **Gabriel Justino Gonçalo da Silva** | Desenvolvimento dos mapas, colisões, transições entre mapas, integração dos sprites do jogador e do vilão e implementação da movimentação visual conforme a direção. |
+| **Carlos Mathias Roma** | Implementação da lógica dos objetos coletáveis, gerenciamento das chaves, dicas, kits médicos e inventário. |
+| **Geraldo Eufrázio Muniz Neto** | Desenvolvimento da lógica do jogador, movimentação, velocidade, inteligência do vilão e arquitetura orientada a objetos. |
+| **Glucia Freire Kinkonda** | Desenvolvimento das telas do jogo e criação de diversos sprites utilizados durante a interface. |
+| **Cássio Henrique de Freitas Silva** | Criação dos sprites dos personagens e demais recursos gráficos do projeto. |
+| **Juan Henrique dos Santos** | Participação no desenvolvimento geral, testes e validação das funcionalidades implementadas. |
+
+
+## 🤝 Desenvolvimento em Equipe
+
+Durante o desenvolvimento, os integrantes utilizaram o **Git** e o **GitHub** para controlar versões do código, integrar funcionalidades e acompanhar a evolução do projeto de forma colaborativa.
+
+A divisão em módulos permitiu que diferentes funcionalidades fossem implementadas simultaneamente, reduzindo conflitos entre arquivos e tornando o desenvolvimento mais organizado.
+
+# 💻 9. Conceitos de Programação Utilizados
+
+Durante o desenvolvimento do **CInBeribe**, foram aplicados diversos conceitos estudados na disciplina de Introdução à Programação, permitindo a construção de um projeto organizado, reutilizável e de fácil manutenção.
+
+### 🧩 Programação Orientada a Objetos (POO)
+
+A arquitetura do jogo foi baseada em Programação Orientada a Objetos, utilizando classes para representar personagens, itens coletáveis, portas e demais elementos do jogo. Também foram utilizados os conceitos de herança, encapsulamento e reutilização de código.
+
+### 📂 Modularização
+
+O projeto foi dividido em diferentes módulos e pacotes, separando mapas, personagens, objetos, colisões e interfaces. Essa organização facilitou o desenvolvimento em equipe e tornou o código mais legível.
+
+### 🔄 Estruturas de Repetição
+
+Laços de repetição foram utilizados no loop principal do jogo, na atualização dos personagens, na renderização dos mapas e no gerenciamento dos objetos presentes em cada cenário.
+
+### 🔀 Estruturas Condicionais
+
+Estruturas condicionais controlam eventos importantes do jogo, como movimentação entre mapas, coleta de itens, perseguição do inimigo e verificação das condições de vitória e derrota.
+
+### 📋 Listas
+
+Listas foram utilizadas para armazenar objetos coletáveis, colisões, mapas, chaves, dicas, kits médicos e demais elementos que precisam ser percorridos durante a execução do jogo.
+
+### ⚙️ Funções
+
+O projeto foi organizado em funções específicas para movimentação, desenho dos elementos, troca de mapas, verificação de colisões e atualização das mecânicas do jogo, tornando o código mais reutilizável e organizado.
+
+### 🎮 Tratamento de Eventos
+
+O Pygame foi utilizado para capturar eventos do teclado e do mouse, permitindo controlar a movimentação do jogador, a interação com os menus e os botões das telas de vitória e derrota.
+
+# 📚 10. Aprendizados e Desafios
+
+O desenvolvimento do **CInBeribe** proporcionou à equipe uma experiência prática na construção de um projeto completo utilizando Python e Pygame.
+
+Entre os principais desafios enfrentados, destacam-se:
+
+- Implementação das colisões dos onze mapas;
+- Organização do projeto utilizando Programação Orientada a Objetos;
+- Integração das funcionalidades desenvolvidas pelos diferentes integrantes;
+- Desenvolvimento da lógica de perseguição do inimigo e transição entre mapas.
+
+Ao longo de aproximadamente **um mês de desenvolvimento**, a equipe aprimorou conhecimentos em programação, trabalho colaborativo com Git e GitHub e organização de projetos de software.
+
+
+# 🎮 11. Como Jogar
+
+## Controles
+
+| Tecla | Ação |
+|--------|------|
+| **W** ou **↑** | Mover para cima |
+| **S** ou **↓** | Mover para baixo |
+| **A** ou **←** | Mover para a esquerda |
+| **D** ou **→** | Mover para a direita |
+
+## Objetivo
+
+Para vencer a partida, o jogador deve:
+
+- 🔑 Coletar as **3 chaves** espalhadas pelos mapas;
+- ❤️ Permanecer com pelo menos **1 coração de vida**;
+- 🚪 Alcançar a porta de saída localizada no Laboratório de Hardware.
+
+As pistas são opcionais e auxiliam na localização das chaves, enquanto os kits médicos permitem recuperar vidas durante a exploração.
+
+
+# 🚀 12. Melhorias Futuras
+
+Algumas funcionalidades planejadas para versões futuras do jogo incluem:
+
+- 👾 Novos inimigos com comportamentos diferentes;
+- 🗺️ Novos mapas e ambientes exploráveis;
+- 🔐 Passagens secretas entre salas;
+- 🏆 Sistema de ranking por tempo de conclusão;
+- 🎵 Sons e trilha sonora para aumentar a imersão.
+
+
+# ⭐ Considerações Finais
+
+O **CInBeribe** foi desenvolvido como projeto da disciplina de **Introdução à Programação (IF668)**, aplicando na prática os principais conceitos estudados ao longo da disciplina.
+
+Além de reforçar conhecimentos técnicos em Python e Programação Orientada a Objetos, o projeto proporcionou experiência em desenvolvimento colaborativo, organização de código e utilização de ferramentas de versionamento.
+
+A equipe espera continuar evoluindo o projeto no futuro, adicionando novas mecânicas e funcionalidades para tornar a experiência do jogador ainda mais divertida e desafiadora.
