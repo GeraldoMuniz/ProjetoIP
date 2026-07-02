@@ -37,3 +37,7 @@ def desenhar_chaves(tela, mapa_atual):
     for chave in lista_chaves:
         if chave.mapa == mapa_atual:
             chave.desenhar(tela)
+
+def reiniciar_chaves():
+    for chave in lista_chaves:
+        chave.pegou = False
