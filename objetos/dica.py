@@ -27,3 +27,7 @@ def desenhar_dicas(tela, mapa_atual):
     for dica in lista_dicas:
         if dica.mapa == mapa_atual:
             dica.desenhar(tela)
+
+def reiniciar_dicas():
+    for dica in lista_dicas:
+        dica.pegou = False
