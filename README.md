@@ -17,7 +17,7 @@ Bem-vindo(a) ao Centro de Informática! Assuma o controle de um(a) aluno(a) perd
 
 O jogo foi desenvolvido com a biblioteca Pygame e estruturado de forma modular, separando responsabilidades em pacotes dedicados a personagens, objetos, cenários, colisões e telas. A estrutura conta com uma pasta imagem/ para todos os sprites e mapas do jogo, e os seguintes pacotes na raiz:
 
-text
+```text
 imagem/
     ├── Imagem_CIn.png                 (fundo do menu)
     ├── mapa.png                       (mapa principal / hub)
@@ -83,7 +83,7 @@ todas_telas/
     └── tela.py              (criação/configuração da janela)
 
 main.py                      (loop principal do jogo)
-
+```
 
 * *main.py:* Controla o loop principal do jogo, gerencia a troca entre os mapas, atualiza personagens, verifica colisões com paredes/objetos/portas e desenha o HUD (vida, chaves, kits, dicas).
 * *personagens/personagem.py:* Classe base Personagem, responsável por vida, velocidade, posição, limites do mapa e o sistema de dano com cooldown.
