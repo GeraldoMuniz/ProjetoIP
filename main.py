@@ -1,6 +1,6 @@
 import pygame
 from todas_telas import tela, menu
-from todas_telas.telas_finais import mostrar_derrota
+from todas_telas.telas_finais import mostrar_derrota, mostrar_vitoria
 from personagens.boneco import Boneco
 from personagens.vilao import Inimigo
 from objetos import chave
@@ -80,7 +80,7 @@ def main ():
     "laboratorio": laboratorio.desenhar
     }
 
-    fonte = pygame.font.SysFont(None, 28) #REMOVER
+    fonte = pygame.font.SysFont(None, 28)
 
     flag_rodar = True
 
@@ -89,117 +89,38 @@ def main ():
     historico_dicas = []
 
     while (flag_rodar):
-        porta_biblioteca = pygame.Rect(
-            317,
-            248,
-            60,
-            60
-        )
 
-        porta_saida_biblioteca = pygame.Rect(
-                1251,
-                817,
-                60,
-                60
-            )
+        porta_biblioteca = pygame.Rect(317,248,60,60)
 
-        porta_hardware = pygame.Rect(
-                322,
-                852,
-                80,
-                60
-            )
+        porta_saida_biblioteca = pygame.Rect(1251,817,60,60)
 
-        porta_saida_hardware = pygame.Rect(
-                819,
-                63,
-                80,
-                60
-            )
+        porta_hardware = pygame.Rect(322,852,80,60)
 
-        porta_area_privada = pygame.Rect(
-                1318,
-                215,
-                60,
-                60
-            )
+        porta_saida_hardware = pygame.Rect(819,63,80,60)
+
+        porta_area_privada = pygame.Rect(1318,215,60,60)
             
-        porta_saida_area_privada = pygame.Rect(
-                364,
-                848,
-                60,
-                60
-            )
+        porta_saida_area_privada = pygame.Rect(364,848,60,60)
 
-        porta_robocin = pygame.Rect(
-                1378,
-                406,
-                60,
-                60
-            )
+        porta_robocin = pygame.Rect(1378,406,60,60)
             
-        porta_saida_robocin = pygame.Rect(
-                218,
-                428,
-                60,
-                60
-            )
+        porta_saida_robocin = pygame.Rect(218,428,60,60)
 
-        porta_sala_musica = pygame.Rect(
-                1325,
-                632,
-                60,
-                60
-            )
+        porta_sala_musica = pygame.Rect(1325,632,60,60)
 
-        porta_saida_sala_musica = pygame.Rect(
-                826,
-                100,
-                60,
-                60
-            )
+        porta_saida_sala_musica = pygame.Rect(826,100,60,60)
 
-        porta_mesanino = pygame.Rect(
-                1082,
-                630,
-                60,
-                60
-            )
+        porta_mesanino = pygame.Rect(1082,630,60,60)
             
-        porta_saida_mesanino = pygame.Rect(
-                829,
-                90,
-                60,
-                60
-            )
+        porta_saida_mesanino = pygame.Rect(829,90,60,60)
 
-        porta_anfiteatro = pygame.Rect(
-                526,
-                620,
-                60,
-                60
-            )
+        porta_anfiteatro = pygame.Rect(526,620,60,60)
 
-        porta_saida_anfiteatro = pygame.Rect(
-                1485,
-                409,
-                60,
-                60
-            )
+        porta_saida_anfiteatro = pygame.Rect(1485,409,60,60)
 
-        porta_banheiro = pygame.Rect(
-                1108,
-                172,
-                60,
-                60
-            )
+        porta_banheiro = pygame.Rect(1108,172,60,60)
 
-        porta_saida_banheiro = pygame.Rect(
-                834,
-                772,
-                60,
-                60
-            )
+        porta_saida_banheiro = pygame.Rect(834,772,60,60)
 
         porta_helpdesk = pygame.Rect(510,794,60,60)
 
@@ -208,6 +129,8 @@ def main ():
         porta_laboratorio = pygame.Rect(826,212,60,60)
 
         porta_saida_laboratorio = pygame.Rect(794,845,60,60)
+
+        porta_vencer = pygame.Rect(752,798,126,94)
         
         for ocorrencia in pygame.event.get ():
             #se apertar no botão de sair, sai.
@@ -334,10 +257,26 @@ def main ():
 
         elif mapa_atual == "hardware":
 
+            #porta de vitória
+            if boneco_jogo.rect.colliderect(porta_vencer):
+
+                if len(chaves_coletadas) == 3 and boneco_jogo.vida >= 1:
+
+                    resultado = mostrar_vitoria(tela_jogo)
+
+                    if resultado == "reiniciar":
+
+                        chave.reiniciar_chaves()
+                        kit_medico.reiniciar_kits()
+                        dica.reiniciar_dicas()
+
+                        return main()
+
+            #porta de volta para a biblioteca
             if boneco_jogo.rect.colliderect(porta_saida_hardware):
-        
+
                 mapa_atual = "biblioteca"
-        
+
                 boneco_jogo.rect.x = 340
                 boneco_jogo.rect.y = 780
 
