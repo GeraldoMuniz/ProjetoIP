@@ -40,3 +40,7 @@ def desenhar_kits(tela, mapa_atual):
     for kit in lista_kits:
         if kit.mapa == mapa_atual:
             kit.desenhar(tela)
+
+def reiniciar_kits():
+    for kit in lista_kits:
+        kit.pegou = False
