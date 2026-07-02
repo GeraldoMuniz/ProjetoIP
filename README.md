@@ -104,7 +104,12 @@ Extra: prints/ para pôr no README
 
 Mapa principal (hub que conecta todas as salas do CIn):
 
-![Imagem Inicial](prints/imagem_cin.png), com um botão vermelho "Começar" para dar início à exploração.
+![Mapa principal](prints/mapa_principal.png)
+
+
+![Imagem Inicial](prints/imagem_cin.png)
+
+Imagem de começo com um botão vermelho "Começar" para dar início à exploração.
 
 ![Coletar dica](prints/dica_coletada.png)
 
