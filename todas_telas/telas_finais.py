@@ -12,6 +12,9 @@ def mostrar_derrota(tela):
 
     while True:
 
+        mx, my = pygame.mouse.get_pos()
+        print(mx, my)
+
         for evento in pygame.event.get():
 
             if evento.type == pygame.QUIT:
