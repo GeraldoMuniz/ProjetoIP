@@ -4,7 +4,17 @@
 
 Bem-vindo(a) ao Centro de Informática! Assuma o controle de um(a) aluno(a) perdido(a) pelos corredores do CIn e embarque em uma jornada de exploração pelo campus. Para sair, você precisará encontrar três chaves guardadas em salas trancadas — a Biblioteca, o RoboCin, a Sala de Música — e destrancar seu caminho até a saída. Mas cuidado: um vilão ronda os corredores e, se avistar você de perto, vai atrás com tudo. Explore o Hardware, a Área Privada, o Mesanino, o Anfiteatro, o Laboratório, o Helpdesk e até o Banheiro em busca de dicas e kits médicos para recuperar sua vida. Junte as três chaves, escape do perseguidor e prove que você conhece o CIn como a palma da sua mão!
 
-## 2. Arquitetura do Projeto:
+## 2. Participantes:
+
+* Cássio Henrique de Freitas Silva
+* Carlos Mathias Roma
+* Gabriel Justino Gonçalo da Silva
+* Geraldo Eufrázio Muniz Neto
+* Glucia Freire Kinkonda
+* Juan Henrique dos Santos
+
+
+## 3. Arquitetura do Projeto:
 
 O jogo foi desenvolvido com a biblioteca Pygame e estruturado de forma modular, separando responsabilidades em pacotes dedicados a personagens, objetos, cenários, colisões e telas. A estrutura conta com uma pasta imagem/ para todos os sprites e mapas do jogo, e os seguintes pacotes na raiz:
 
@@ -91,7 +101,7 @@ main.py                      (loop principal do jogo)
 
 Extra: prints/ para pôr no README
 
-## 3. Capturas de Tela:
+## 4. Capturas de Tela:
 
 Mapa principal (hub que conecta todas as salas do CIn):
 
@@ -123,7 +133,7 @@ Tela de vitória.
 
 Tela de derrota.
 
-## 4. Ferramentas, bibliotecas e frameworks utilizados:
+## 5. Ferramentas, bibliotecas e frameworks utilizados:
 
 * Python 3.
 * *Biblioteca Pygame:* Biblioteca principal utilizada para a construção do jogo, responsável pela criação da janela e do loop principal, pela captura de eventos de teclado e mouse, pela renderização das imagens e formas geométricas (mapas, sprites, HUD) e pelo gerenciamento das entidades do jogo através de pygame.Rect para colisões e pygame.math.Vector2 para a movimentação do vilão.
@@ -131,7 +141,20 @@ Tela de derrota.
 * *VS Code:* Editor de código utilizado para o desenvolvimento do projeto, facilitando a navegação entre os múltiplos módulos (personagens, objetos, mapas, colisões) e a identificação de erros de sintaxe durante a codificação.
 * Imagens dos mapas e sprites do jogador/vilão desenhadas especificamente para representar os ambientes reais do Centro de Informática.
 
-## 5. Conceitos de Programação utilizados:
+## 6. Divisão de trabalho:
+
+O desenvolvimento foi realizado durante aproximadamente **um mês**, utilizando divisão de tarefas entre os integrantes para facilitar a implementação das funcionalidades.
+
+| Integrante | Principais contribuições |
+|------------|-------------------------|
+| **Gabriel Justino Gonçalo da Silva** | Desenvolvimento dos mapas, colisões, transições entre mapas, integração dos sprites do jogador e do vilão e implementação da movimentação visual conforme a direção. |
+| **Carlos Mathias Roma** | Implementação da lógica dos objetos coletáveis, gerenciamento das chaves, dicas, kits médicos e inventário. |
+| **Geraldo Eufrázio Muniz Neto** | Desenvolvimento da lógica do jogador, movimentação, velocidade, inteligência do vilão e arquitetura orientada a objetos. |
+| **Glucia Freire Kinkonda** | Desenvolvimento das telas do jogo e criação de diversos sprites utilizados durante a interface. |
+| **Cássio Henrique de Freitas Silva** | Criação dos sprites dos personagens e demais recursos gráficos do projeto. |
+| **Juan Henrique dos Santos** | Participação no desenvolvimento geral, testes e validação das funcionalidades implementadas. |
+
+## 7. Conceitos de Programação utilizados:
 
 Durante o desenvolvimento do projeto, diversos conceitos estudados na disciplina foram aplicados na prática:
 
@@ -147,8 +170,37 @@ Durante o desenvolvimento do projeto, diversos conceitos estudados na disciplina
 * *Controle de Tempo (Cooldown):* Uso de pygame.time.get_ticks() na classe Personagem para evitar que o jogador sofra dano contínuo do vilão, aplicando um intervalo mínimo entre ataques.
 * *Geometria Computacional e Colisões:* Aplicação prática da classe pygame.Rect, calculando a sobreposição de hitboxes para detectar interações entre o jogador, o vilão, as paredes dos cenários, os coletáveis e as portas.
 * *Flags booleanas:* Uso de variáveis como flag_rodar e pegou para controlar o estado de execução do jogo e evitar que um mesmo item seja coletado mais de uma vez.
+  
+## 8. Aprendizados e Desafios:
 
-## 6. Como jogar:
+* Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?
+   
+
+O maior erro foi não ter começado a estruturar o projeto em POO, pois futuramente tivemos que trocar todas as partes que não estavam em POO para POO de maneira definitiva (usando classes e suas características). Mas conseguimos lidar bem com toda essa transição, sem muitas dificuldades.
+
+
+* Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?
+   
+
+O maior desafio foram os mínimos detalhes, quando vai chegando perto do final e algo persiste a não ficar do jeito esperado. Lidamos de maneira positiva, com muita resiliência.
+
+
+* Quais as lições aprendidas durante o projeto?
+   
+
+Sempre definir, antes de tudo, o que vai ser utilizado e o que não vai no projeto (tecnologias e seus métodos), para não ficar trocando a lógica de partes do código que poderiam ser feitas de maneira mais sólida anteriormente.
+
+
+O desenvolvimento do *CInBeribe* proporcionou à equipe uma experiência prática na construção de um projeto completo utilizando Python e Pygame.
+
+Entre os principais desafios enfrentados, destacam-se:
+
+- Implementação das colisões dos onze mapas;
+- Organização do projeto utilizando Programação Orientada a Objetos;
+- Integração das funcionalidades desenvolvidas pelos diferentes integrantes;
+- Desenvolvimento da lógica de perseguição do inimigo e transição entre mapas.
+
+## 9. Como jogar:
 
 * Requisitos:
     * Python 3.x instalado.
@@ -172,7 +224,7 @@ Durante o desenvolvimento do projeto, diversos conceitos estudados na disciplina
    * Explore todas as salas do CIn — Biblioteca, Hardware, Área Privada, RoboCin, Sala de Música, Mesanino, Anfiteatro, Banheiro, Helpdesk e Laboratório —, colete as três chaves, cuide da sua vida e escape do vilão!
 
 * Instruções:
-    * Clone ou baixe o projeto deste repositório: github.com/Cassio327/CInBeribe
+    * Clone ou baixe o código no repositório oficial: https://github.com/GeraldoMuniz/ProjetoIP
     * Instale a dependência do projeto: pip install pygame
     * Rode o arquivo main.py.
 
